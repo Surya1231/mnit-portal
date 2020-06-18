@@ -1,3 +1,6 @@
+$base-color: #254c84;
+$base-color-light : #536a8a;
+
 .app {
     background-color:#D3D3D3;
     min-height: 100vh;
@@ -6,8 +9,80 @@
 
 .main-box{
     min-height: 90vh;
-    background-color: white;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
     padding: 10px;
 }
+
+
+// Navigation Bar css
+
+.navbar-container{
+
+    .navbar{
+        font-size: large;
+        background-color: $base-color;
+    }
+
+    .navbar-brand{
+        font-weight: bold;
+        font-size: larger;
+        margin-right: 2rem;
+    }
+
+    .active{
+        color: white;
+        font-weight: 400;
+    }
+
+    .nav-link{
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+}
+
+// Side menu Css
+
+.sidemenu{
+
+    li:hover{
+        background-color: $base-color;
+        color: white;
+    }
+
+    li {
+        cursor: pointer;
+    }
+
+    .active{
+        background-color: $base-color;
+        border: none;
+        color: white;
+    }
+}
+
+// Side boxes
+
+.sidebox{
+    .heading {
+        background-color: $base-color;
+        color: white;
+    }
+}
+
+
+// Common CSS
+
+.content-box{
+    background-color: white;
+    min-height: 85vh;
+}
+
+
+
+// Styling fixes
+
+.row{
+    margin: 0px;
+}
+

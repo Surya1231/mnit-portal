@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import '../../css/navbar.scss'
 
 const Navbar = ({pathname}) =>{
     return (
         <div className="navbar-container">
             <nav className="navbar navbar-expand-md navbar-dark  px-4">
-                <span className="navbar-brand"> MNIT PORTAL </span>
+                <img src={`${process.env.PUBLIC_URL}/assets/logos/logo.png`} width="40" height="40" alt="" />
+                <Link to="/" className="navbar-brand"> MNIT PORTAL </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
                 </button>
