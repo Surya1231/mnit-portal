@@ -13,21 +13,22 @@ const Navbar = ({pathname}) =>{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                    <Link className={`nav-link ${pathname==="/" ? 'active' : ''}`} to="/" >Home</Link>
+                        <Link className={`nav-link ${pathname==="/" ? 'active' : ''}`} to="/" >Home</Link>
                     </li>
                     <li className="nav-item">
-                    <Link className={`nav-link ${pathname==="/leaderboard" ? 'active' : ''}`} to="/leaderboard" >Leaderboard</Link>
+                        <Link className={`nav-link ${pathname==="/leaderboard" ? 'active' : ''}`} to="/leaderboard" >Leaderboard</Link>
                     </li>
                     <li className="nav-item">
-                    <Link className={`nav-link ${pathname==="/interview" ? 'active' : ''}`} to="/interview" >Interview</Link>
+                        <Link className={`nav-link ${pathname==="/interview" ? 'active' : ''}`} to="/interview" >Interview</Link>
                     </li>
                     <li className="nav-item">
-                    <Link className={`nav-link ${pathname==="/about" ? 'active' : ''}`} to="/about" >About</Link>
+                        <Link className={`nav-link ${pathname==="/about" ? 'active' : ''}`} to="/about" >About</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" rel="noopener noreferrer" target="_blank" href="https://codeshows.github.io/"> Codeshows </a>
+                        <a className="nav-link" rel="noopener noreferrer" target="_blank" href="https://codeshows.github.io/"> Codeshows </a>
                     </li>            
                 </ul>
+                <button className="btn btn-success navbar-text text-white"> Report An Issue </button>
                 </div>
             </nav>
         </div>

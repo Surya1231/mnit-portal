@@ -17,7 +17,7 @@ class About extends React.Component{
 
     render(){
         return (
-            <div className="row"> 
+            <div className="row pt-3"> 
                 <div className="col-md-3 px-md-3 pb-3">
                     <SideMenu
                         optionList = {["Developer" , "Contribution" , "Stats" , "Report Issue"]}
