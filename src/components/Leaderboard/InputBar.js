@@ -2,12 +2,7 @@ import React from 'react';
 
 class InputBar extends React.Component{
 
-    state = {
-        platform: "codeforces",
-        year: "overall",
-        contest: "overall",
-        customId: "100"
-    }
+    state = this.props.initialValues
 
     onChangeHandle = (eve) =>{
         this.setState({
@@ -17,22 +12,14 @@ class InputBar extends React.Component{
 
     onSubmitHandler = (eve) =>{
         eve.preventDefault();
-        if(this.state.contest === "custom")
-            this.setState({
-                contest:this.state.customId
-            } , 
-               () => this.props.onSubmit(this.state)
-            )
-        else {
-            this.props.onSubmit(this.state)
-        }
+        this.props.onSubmit(this.state)
     }
 
     render(){
         return(
         <form onSubmit={this.onSubmitHandler}>
             <div className="row px-2">
-                <div className="form-group col-md-3">
+                <div className="form-group col-md-2">
                     <label htmlFor="platform">Platform</label>
                     <select name="platform" id="platform" className="form-control" onChange={this.onChangeHandle}>
                         <option value="codeforces"> Codeforces </option>
@@ -46,12 +33,13 @@ class InputBar extends React.Component{
                         <option value="1">1st Year</option>
                     </select>
                 </div>
-                <div className="form-group col-md-3">
+                <div className="form-group col-md-4">
                     <label htmlFor="contest"> Contest</label>
                     <select name="contest" defaultValue="overall" className="form-control" onChange={this.onChangeHandle}>
                         <option value="overall" >Overall</option>
-                        <option value="id">Div 3 #224</option>
                         <option value="custom">Custom Contest</option>
+                        {this.props.recentContest.map((item,index) => <option key={index} value={item.id}>{item.name}</option>)}
+                        
                     </select>
                 </div>
                 <div className="form-group col-md-2">

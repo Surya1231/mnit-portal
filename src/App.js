@@ -11,13 +11,7 @@ import Home from './components/Home/Home';
 import Leaderboard from './components/Leaderboard/Leaderboard';
 import About from './components/About/About';
 
-
-
 class App extends React.Component{
-    constructor(props){
-        super(props);
-        console.log("App started hai");
-    }
 
     render(){
         return (

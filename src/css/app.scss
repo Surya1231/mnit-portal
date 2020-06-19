@@ -1,5 +1,4 @@
 $base-color: #254c84;
-$base-color-light : #536a8a;
 
 .app {
     background-color:#D3D3D3;
@@ -65,6 +64,23 @@ $base-color-light : #536a8a;
 
 .sidebox{
     .heading {
+        background-color: $base-color;
+        color: white;
+    }
+}
+
+
+// LeaderBoard Css
+
+.leaderboard-container {
+    width: 100%;
+    overflow-x: auto;
+
+    a {
+        text-decoration: none;
+    }
+
+    th {
         background-color: $base-color;
         color: white;
     }

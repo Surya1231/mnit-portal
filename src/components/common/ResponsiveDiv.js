@@ -7,3 +7,11 @@ export const MobileHiddenDiv = ({children}) => {
         </div>
     )
 }
+
+export const CenterDiv = ({children}) => {
+    return(
+        <div className = "center-box">
+            {children}
+        </div>
+    )
+}
