@@ -4,7 +4,6 @@ import { getCfLeaderboard, getCfRecentContest } from '../../api/codeforces/codef
 import Overall from './Overall';
 import CfContest from './CfContest';
 import { SpinnerLoader } from '../common/Loaings';
-import { CenterDiv } from '../common/ResponsiveDiv';
 
 class Leaderboard extends React.Component {
 
@@ -57,7 +56,6 @@ class Leaderboard extends React.Component {
 
         getCfLeaderboard(values)
         .then(res => { 
-            console.log(res);
             this.setState({
                 data: res,
                 loading:false
@@ -74,7 +72,7 @@ class Leaderboard extends React.Component {
 
     render(){
         return(
-            <div className = "content-box pt-3">
+            <div className = "content-box pt-3 overflow-y-auto h-90vh">
                 <InputBar
                     onSubmit = {this.onSubmit}
                     initialValues = {this.state.values}

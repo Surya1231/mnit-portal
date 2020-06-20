@@ -10,6 +10,9 @@ import { Switch, Route } from 'react-router';
 import Home from './components/Home/Home';
 import Leaderboard from './components/Leaderboard/Leaderboard';
 import About from './components/About/About';
+import Interview from './components/Interview/Interview';
+import Company from './components/Company/Company';
+import { FullScreenError } from './components/common/Errors';
 
 class App extends React.Component{
 
@@ -34,11 +37,21 @@ class App extends React.Component{
                     />
                     <Route
                         exact
+                        path = "/interview"
+                        render = {props => <Interview {...props} />}
+                    />
+                    <Route
+                        exact
+                        path = "/company"
+                        render = {props => <Company {...props} />}
+                    />
+                    <Route
+                        exact
                         path = "/about"
                         render = {props => <About {...props} />}
                     />
                     <Route
-                        render = {() => <span> App Under Producation</span>}
+                        render = {() => <FullScreenError />}
                     />
                 </Switch>
                 </div>

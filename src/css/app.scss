@@ -1,5 +1,11 @@
 $base-color: #254c84;
 
+$sidemenu-color:#c2f6f6;
+$sidemenu-text-color:black;
+
+$error-color: rgb(150, 10, 10);
+$error-color-light: rgb(231, 176, 176);
+
 .app {
     background-color:#D3D3D3;
     min-height: 100vh;
@@ -44,19 +50,26 @@ $base-color: #254c84;
 
 .sidemenu{
 
-    li:hover{
+    .heading {
         background-color: $base-color;
         color: white;
     }
 
-    li {
+    .menu-item {
         cursor: pointer;
     }
 
+    .menu-item:hover{
+        background-color: $sidemenu-color;
+        color: $sidemenu-text-color;
+    }
+
     .active{
-        background-color: $base-color;
+        background-color: $sidemenu-color;
         border: none;
-        color: white;
+        color:$sidemenu-text-color;
+        border-left: 5px solid $base-color;
+        box-sizing:  border-box;
     }
 }
 
@@ -86,6 +99,18 @@ $base-color: #254c84;
     }
 }
 
+// Errors Css
+
+.error{
+    width: 90%;
+    max-width: 800px;
+    background-color: $error-color-light;
+    border: 1px solid $error-color;
+    color: $error-color;
+    border-radius: 10px;
+    margin: auto;
+}
+
 
 // Common CSS
 
@@ -94,11 +119,31 @@ $base-color: #254c84;
     min-height: 85vh;
 }
 
+.overflow-y-auto{
+    overflow-y: auto;
+}
+
+.h-90vh{
+    height: 90vh;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.hover:hover{
+    background-color: rgba(185, 184, 184, 0.281);
+}
+
 
 
 // Styling fixes
 
 .row{
     margin: 0px;
+}
+
+a {
+    text-decoration: none;
 }
 

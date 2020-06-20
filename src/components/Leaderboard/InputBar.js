@@ -43,11 +43,11 @@ class InputBar extends React.Component{
                     </select>
                 </div>
                 <div className="form-group col-md-2">
-                    <label htmlFor="contestId"> Custom Contest Id</label>
+                    <label htmlFor="contestId"> Contest Id</label>
                     <input type="text" name="customId" className="form-control" onChange={this.onChangeHandle} disabled={this.state.contest!=="custom"} required={this.state.contest==="custom"}/>
                 </div>
-                <div className="form-group col-md-1 pt-4">
-                    <button className="btn btn-outline-info px-4"> Submit</button>
+                <div className="form-group col-md-2 pt-4">
+                    <button className="btn btn-outline-info btn-block"> Submit</button>
                 </div>
             </div>
         </form>

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const Navbar = ({pathname}) =>{
     return (
         <div className="navbar-container">
-            <nav className="navbar navbar-expand-md navbar-dark  px-4">
+            <nav className="navbar navbar-expand-lg navbar-dark  px-4">
                 <img src={`${process.env.PUBLIC_URL}/assets/logos/logo.png`} width="40" height="40" alt="" />
                 <Link to="/" className="navbar-brand"> MNIT PORTAL </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,9 @@ const Navbar = ({pathname}) =>{
                     </li>
                     <li className="nav-item">
                         <Link className={`nav-link ${pathname==="/interview" ? 'active' : ''}`} to="/interview" >Interview</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className={`nav-link ${pathname==="/company" ? 'active' : ''}`} to="/company" >Company</Link>
                     </li>
                     <li className="nav-item">
                         <Link className={`nav-link ${pathname==="/about" ? 'active' : ''}`} to="/about" >About</Link>

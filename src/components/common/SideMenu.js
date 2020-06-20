@@ -1,13 +1,14 @@
 import React from 'react'
 
-const SideMenu = ({optionList = [] , active = 1 , onClickHandler}) => {
+const SideMenu = ({optionList = [] , heading , active = 1 , onClickHandler}) => {
     return (
         <div className="sidemenu">
             <ul className="list-group">
+                {heading && <li className="list-group-item heading"> {heading} </li> }       
                 {optionList.map((menu,index) => 
-                 <li 
+                <li 
                     key={index} 
-                    className={`list-group-item ${index === active ? "active" : ""}`}
+                    className={`list-group-item menu-item ${index === active ? "active" : ""}`}
                     onClick= {() => onClickHandler(index)}
                 >
                     {menu}
