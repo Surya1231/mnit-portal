@@ -3,6 +3,7 @@ One Stop portal for mnitians for getting all the information regarding MNIT.
 
 ## Status
 - The portal is in development phase
+- Live demo [link](https://surya1231.github.io/mnit-portal/)
 
 ## Technologies
 - React.js
