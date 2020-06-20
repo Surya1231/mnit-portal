@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mnit-portal/static/css/main.9a7f3c17.chunk.css",
+    "main.js": "/mnit-portal/static/js/main.11c9fa4b.chunk.js",
+    "main.js.map": "/mnit-portal/static/js/main.11c9fa4b.chunk.js.map",
+    "runtime-main.js": "/mnit-portal/static/js/runtime-main.df74e656.js",
+    "runtime-main.js.map": "/mnit-portal/static/js/runtime-main.df74e656.js.map",
+    "static/css/2.75c4ecca.chunk.css": "/mnit-portal/static/css/2.75c4ecca.chunk.css",
+    "static/js/2.8b438b35.chunk.js": "/mnit-portal/static/js/2.8b438b35.chunk.js",
+    "static/js/2.8b438b35.chunk.js.map": "/mnit-portal/static/js/2.8b438b35.chunk.js.map",
+    "index.html": "/mnit-portal/index.html",
+    "precache-manifest.b1ccf024b224c576b701d41dedef3579.js": "/mnit-portal/precache-manifest.b1ccf024b224c576b701d41dedef3579.js",
+    "service-worker.js": "/mnit-portal/service-worker.js",
+    "static/css/2.75c4ecca.chunk.css.map": "/mnit-portal/static/css/2.75c4ecca.chunk.css.map",
+    "static/css/main.9a7f3c17.chunk.css.map": "/mnit-portal/static/css/main.9a7f3c17.chunk.css.map",
+    "static/js/2.8b438b35.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.8b438b35.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df74e656.js",
+    "static/css/2.75c4ecca.chunk.css",
+    "static/js/2.8b438b35.chunk.js",
+    "static/css/main.9a7f3c17.chunk.css",
+    "static/js/main.11c9fa4b.chunk.js"
+  ]
+}
