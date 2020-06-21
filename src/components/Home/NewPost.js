@@ -1,4 +1,5 @@
 import React from 'react';
+import Editor from './Editor';
 
 class NewPost extends React.Component {
 
@@ -25,14 +26,14 @@ class NewPost extends React.Component {
                     </div>
                     <div className="form-group col-12 mt-3">
                     <label>Description</label>
-                        <textarea className="d-block w-100" style={{height:"200px"}} />
+                        <Editor placeHolder="Description" />
                     </div>
                     <div className="form-group row mt-3">
                         <div className="col-sm-2 px-0"> Posted By : </div>
-                        <div className="col-sm-10">
+                        <div className="col-sm-10 px-0">
                             <div className="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1" />
-                            <label class="form-check-label" for="gridCheck1">
+                            <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                            <label className="form-check-label" for="gridCheck1">
                                 Post this Anonymously
                             </label>
                             </div>

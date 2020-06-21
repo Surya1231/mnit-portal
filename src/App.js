@@ -13,6 +13,8 @@ import About from './components/About/About';
 import Interview from './components/Interview/Interview';
 import Company from './components/Company/Company';
 import { FullScreenError } from './components/common/Errors';
+import Login from './components/Authentication/Login';
+import FullPost from './components/Home/FullPost';
 
 class App extends React.Component{
 
@@ -29,6 +31,11 @@ class App extends React.Component{
                         exact
                         path = "/"
                         render = {props => <Home {...props} />}
+                    />
+                    <Route
+                        exact
+                        path = "/post/:id"
+                        render = {props => <FullPost {...props} />}
                     />
                     <Route
                         exact
@@ -49,6 +56,11 @@ class App extends React.Component{
                         exact
                         path = "/about"
                         render = {props => <About {...props} />}
+                    />
+                    <Route
+                        exact
+                        path = "/login"
+                        render = {props => <Login {...props} />}
                     />
                     <Route
                         render = {() => <FullScreenError />}

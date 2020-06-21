@@ -32,12 +32,15 @@ const Navbar = ({pathname}) =>{
                         <a className="nav-link" rel="noopener noreferrer" target="_blank" href="https://codeshows.github.io/"> Codeshows </a>
                     </li>            
                 </ul>
-                <ul className="navbar-nav navbar-text py-0 mr-3">
+                <ul className="navbar-nav navbar-text py-0">
                     <li className="nav-item">
-                        <a className="nav-link" rel="noopener noreferrer" target="_blank" href="https://codeshows.github.io/"> Login </a>
-                    </li>    
+                        <Link className={`nav-link ${pathname==="/news" ? 'active' : ''}`} to="/news" > News </Link>
+                    </li> 
+                    <li className="nav-item">
+                        <Link className={`nav-link ${pathname==="/login" ? 'active' : ''}`} to="/login" > Login </Link>
+                    </li> 
+                    <ReportAnIssue/>
                 </ul>
-                    <ReportAnIssue />
                 </div>
             </nav>
         </div>

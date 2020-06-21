@@ -3,7 +3,7 @@ import React from 'react';
 const ReportAnIssue = () => {
     return(
         <>
-        <button type="button" className="btn btn-success navbar-text text-white" data-toggle="modal" data-target="#reportIssue">
+        <button type="button" className="btn btn-success text-white" data-toggle="modal" data-target="#reportIssue" style={{height: "42px",overflowY: "hidden"}}>
           Report An Issue
         </button>
         <div className="modal fade" id="reportIssue" tabIndex={-1} role="dialog" aria-labelledby="reportIssueTitle" aria-hidden="true">

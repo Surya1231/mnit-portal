@@ -3,7 +3,7 @@ import InputBar from './InputBar';
 import { getCfLeaderboard, getCfRecentContest } from '../../api/codeforces/codeforces';
 import Overall from './Overall';
 import CfContest from './CfContest';
-import { SpinnerLoader } from '../common/Loaings';
+import { SpinnerLoader } from '../common/Loadings';
 import { FullScreenError } from '../common/Errors';
 
 class Leaderboard extends React.Component {
@@ -25,10 +25,6 @@ class Leaderboard extends React.Component {
             recentContest : [],
             data : []
         }
-
-        const str = "vishwas345code;manhar;adigupta_;hemantvardani;hope2002;Hepheastus;Kaustav1%20;Abhishek565;hitesh_singh_rana;Kaustav1%20;Kaustav1%20;abhayshivhare;vishwas345code;manhar;adigupta_;Kaustav2;Abhishek566;hitesh_singh_rana;abhayshivhare;vishwas345code;manhar;adigupta_;navjot1234;Kaustav3;Abhishek567;hitesh_singh_rana;vishwas345code";
-        console.log(JSON.stringify(str.split(';')));
-        
     }
 
     onSubmit = (values) => {

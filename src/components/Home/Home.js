@@ -11,8 +11,19 @@ class Home extends React.Component {
 
     state = {
         category : 0,
-        newPost : false
-
+        newPost : false,
+        categoryList : ["All" , "General" , "Interview" , "Competitive"],
+        post : [
+            {
+                postedBy: "",
+                createdAt: "",
+                category: "",
+                anonymouse: false,
+                content: "",
+                upvotes: 10,
+                comments : [],
+            }
+        ]
     }
 
     toggleNewPost = () =>{
@@ -36,38 +47,34 @@ class Home extends React.Component {
             <div className="row pt-3"> 
                 <div className="col-md-3 px-md-3 pb-3">
                     <SideMenu
-                        optionList = {["All" , "General" , "Interview" , "Competitive"]}
+                        optionList = {this.state.categoryList}
                         active = {this.state.category}
                         onClickHandler = {this.changeCategory} 
                     />
-
                     <MobileHiddenDiv>
                         <QuoteBox />
                     </MobileHiddenDiv>
-
                     <MobileHiddenDiv>
                         <StatsBox />
                     </MobileHiddenDiv>
-                
-                
                 </div>
                 <div className="col-lg-7 col-md-9 px-0 py-0">
                     <div className="px-3 pb-3">
-
-                        <div className="bg-white text-center font-weight-bold text-primary rounded py-3 pointer" onClick={this.toggleNewPost}>
+                        <div className="new-post-button bg-white text-center font-weight-bold text-primary rounded py-3 pointer" onClick={this.toggleNewPost}>
                             { this.state.newPost ? "Back to Forum" : "Add New Post" }
                         </div>
-
-                        {this.state.newPost 
-                         ? <NewPost/>
-                         : <div className="posts">
-                                <PostBox />
-                                <PostBox />
-                                <PostBox />
-                                <PostBox />
-                                <PostBox />
-                                <PostBox />
-                            </div>
+                        {   this.state.newPost 
+                            ? 
+                                <NewPost/>
+                            : 
+                                <div className="post-container">
+                                    <PostBox />
+                                    <PostBox />
+                                    <PostBox />
+                                    <PostBox />
+                                    <PostBox />
+                                    <PostBox />
+                                </div>
                         }                        
                     </div>
                 </div>
