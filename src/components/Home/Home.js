@@ -51,10 +51,10 @@ class Home extends React.Component {
                 
                 
                 </div>
-                <div className="col-md-9 px-0 py-0">
-                    <div className="px-3 py-3" style={{maxWidth:"900px"}}>
+                <div className="col-lg-7 col-md-9 px-0 py-0">
+                    <div className="px-3 pb-3">
 
-                        <div className="bg-white text-center border border-primary text-primary rounded py-4 pointer" onClick={this.toggleNewPost}>
+                        <div className="bg-white text-center font-weight-bold text-primary rounded py-3 pointer" onClick={this.toggleNewPost}>
                             { this.state.newPost ? "Back to Forum" : "Add New Post" }
                         </div>
 
@@ -68,9 +68,7 @@ class Home extends React.Component {
                                 <PostBox />
                                 <PostBox />
                             </div>
-                        }
-
-                        
+                        }                        
                     </div>
                 </div>
             </div>

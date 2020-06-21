@@ -25,7 +25,7 @@ class InputBar extends React.Component{
                         <option value="codeforces"> Codeforces </option>
                     </select>
                 </div>
-                <div className="form-group col-md-2">
+                <div className="form-group col-md-2 mt-2 mt-md-0">
                     <label htmlFor="year">Year</label>
                     <select name="year" id="year" defaultValue="overall" className="form-control" onChange={this.onChangeHandle}>
                         <option value="overall">Overall</option>
@@ -33,7 +33,7 @@ class InputBar extends React.Component{
                         <option value="1">1st Year</option>
                     </select>
                 </div>
-                <div className="form-group col-md-4">
+                <div className="form-group col-md-4  mt-2 mt-md-0">
                     <label htmlFor="contest"> Contest</label>
                     <select name="contest" defaultValue="overall" className="form-control" onChange={this.onChangeHandle}>
                         <option value="overall" >Overall</option>
@@ -42,7 +42,7 @@ class InputBar extends React.Component{
                         
                     </select>
                 </div>
-                <div className="form-group col-md-2">
+                <div className="form-group col-md-2  mt-2 mt-md-0">
                     <label htmlFor="contestId"> Contest Id</label>
                     <input type="text" name="customId" className="form-control" onChange={this.onChangeHandle} disabled={this.state.contest!=="custom"} required={this.state.contest==="custom"}/>
                 </div>

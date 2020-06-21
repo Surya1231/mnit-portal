@@ -3,7 +3,7 @@ import React from 'react'
 const PostBox = () => {
     return(
         <div className="post mt-3">
-            <div className=" shadow border bg-white border-dark rounded py-2 px-4">
+            <div className="bg-white rounded py-2 px-4">
                 <div className="meta-data font-weight-bold text-lg">
                     Posted By Anonymuse <span className="float-right pr-3"> 10min Ago</span>
                 </div>

@@ -23,7 +23,7 @@ class App extends React.Component{
                     pathname = {this.props.location.pathname}
                 />
 
-                <div className="main-box">
+                <div className="main-box pb-md-3">
                 <Switch>
                     <Route
                         exact

@@ -32,7 +32,12 @@ const Navbar = ({pathname}) =>{
                         <a className="nav-link" rel="noopener noreferrer" target="_blank" href="https://codeshows.github.io/"> Codeshows </a>
                     </li>            
                 </ul>
-                <ReportAnIssue />
+                <ul className="navbar-nav navbar-text py-0 mr-3">
+                    <li className="nav-item">
+                        <a className="nav-link" rel="noopener noreferrer" target="_blank" href="https://codeshows.github.io/"> Login </a>
+                    </li>    
+                </ul>
+                    <ReportAnIssue />
                 </div>
             </nav>
         </div>

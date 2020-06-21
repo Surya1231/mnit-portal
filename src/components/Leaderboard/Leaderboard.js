@@ -73,7 +73,7 @@ class Leaderboard extends React.Component {
 
     render(){
         return(
-            <div className = "shadow content-box pt-3 overflow-y-auto h-90vh">
+            <div className = "shadow content-box pt-3">
                 <InputBar
                     onSubmit = {this.onSubmit}
                     initialValues = {this.state.values}
@@ -90,7 +90,7 @@ class Leaderboard extends React.Component {
                         />
                     }
 
-                    <div className="leaderboard-container py-2 px-md-4">
+                    <div className="leaderboard-container py-2 px-md-4 px-2">
                     { !this.state.loading && !this.state.error && this.state.values.platform==="codeforces" && (
                         this.state.values.contest === "overall"
                             ? <Overall
