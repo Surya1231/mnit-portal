@@ -10,8 +10,10 @@ export const MobileHiddenDiv = ({children}) => {
 
 export const CenterDiv = ({children}) => {
     return(
+        <div className="center-box-container overflow-y-auto">
         <div className = "center-box">
             {children}
+        </div>
         </div>
     )
 }

@@ -52,7 +52,7 @@ class Home extends React.Component {
                 
                 </div>
                 <div className="col-md-9 px-0 py-0">
-                    <div className="px-3 py-3">
+                    <div className="px-3 py-3" style={{maxWidth:"900px"}}>
 
                         <div className="bg-white text-center border border-primary text-primary rounded py-4 pointer" onClick={this.toggleNewPost}>
                             { this.state.newPost ? "Back to Forum" : "Add New Post" }

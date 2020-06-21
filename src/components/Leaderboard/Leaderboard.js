@@ -4,6 +4,7 @@ import { getCfLeaderboard, getCfRecentContest } from '../../api/codeforces/codef
 import Overall from './Overall';
 import CfContest from './CfContest';
 import { SpinnerLoader } from '../common/Loaings';
+import { FullScreenError } from '../common/Errors';
 
 class Leaderboard extends React.Component {
 
@@ -72,7 +73,7 @@ class Leaderboard extends React.Component {
 
     render(){
         return(
-            <div className = "content-box pt-3 overflow-y-auto h-90vh">
+            <div className = "shadow content-box pt-3 overflow-y-auto h-90vh">
                 <InputBar
                     onSubmit = {this.onSubmit}
                     initialValues = {this.state.values}
@@ -82,7 +83,12 @@ class Leaderboard extends React.Component {
                 <div>
                     {this.state.loading  && <div className="pt-5"> <SpinnerLoader /> </div>}
 
-                    {this.state.error  && <span> Error </span>}
+                    {this.state.error  &&
+                        <FullScreenError 
+                            code="Codeforces Unreachable" 
+                            description="Please try again after Sometime"
+                        />
+                    }
 
                     <div className="leaderboard-container py-2 px-md-4">
                     { !this.state.loading && !this.state.error && this.state.values.platform==="codeforces" && (

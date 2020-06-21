@@ -112,12 +112,47 @@ $error-color-light: rgb(231, 176, 176);
 }
 
 
-// Common CSS
+// Cards
+
+.custom-card{
+    .circle-image{
+        width: 65%;
+        border-radius: 10rem;
+        margin: auto;
+        margin-top: 10px;
+    }
+}
+
+
+// Boxes
 
 .content-box{
     background-color: white;
     min-height: 85vh;
 }
+
+.center-box-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.center-box{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.fixed-side-box{
+    height: 87vh;
+    background-color: white;
+}
+
+
+// Common Css
 
 .overflow-y-auto{
     overflow-y: auto;

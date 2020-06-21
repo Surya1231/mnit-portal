@@ -1,11 +1,11 @@
 import React from 'react';
 
-export const FullScreenError = () => {
+export const FullScreenError = ({code = "OOPS !!" , description = "Something has been Broken."}) => {
     return(
     <div className="pt-5">
-        <div class="error text-center py-5">
-            <h2> Not Found </h2>
-            Please try again checking your URL
+        <div className="error text-center py-5">
+            <h2> {code} </h2>
+            {description}
         </div>
     </div>
     )
