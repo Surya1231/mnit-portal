@@ -1,187 +1,177 @@
 $base-color: #254c84;
 
-$sidemenu-color:#c2f6f6;
-$sidemenu-text-color:black;
+$sidemenu-color: #c2f6f6;
+$sidemenu-text-color: black;
 
 $error-color: rgb(150, 10, 10);
 $error-color-light: rgb(231, 176, 176);
 
 .app {
-    background-color:#D3D3D3;
-    min-height: 100vh;
-    height: auto;
+  background-color: #d3d3d3;
+  min-height: 100vh;
+  height: auto;
 }
 
-.main-box{
-    min-height: 90vh;
-    max-width: 1300px;
-    margin: auto;
+.main-box {
+  min-height: 90vh;
+  max-width: 1300px;
+  margin: auto;
 }
-
 
 // Navigation Bar css
 
-.navbar-container{
+.navbar-container {
+  .navbar {
+    font-size: large;
+    background-color: $base-color;
+  }
 
-    .navbar{
-        font-size: large;
-        background-color: $base-color;
-    }
+  .navbar-brand {
+    font-weight: bold;
+    font-size: larger;
+    margin-right: 2rem;
+  }
 
-    .navbar-brand{
-        font-weight: bold;
-        font-size: larger;
-        margin-right: 2rem;
-    }
+  .active {
+    color: white;
+    font-weight: 400;
+  }
 
-    .active{
-        color: white;
-        font-weight: 400;
-    }
-
-    .nav-link{
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
-    }
+  .nav-link {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
 }
 
 // Side menu Css
 
-.sidemenu{
+.sidemenu {
+  .heading {
+    background-color: $base-color;
+    color: white;
+  }
 
-    .heading {
-        background-color: $base-color;
-        color: white;
-    }
+  .menu-item {
+    cursor: pointer;
+  }
 
-    .menu-item {
-        cursor: pointer;
-    }
+  .menu-item:hover {
+    background-color: $sidemenu-color;
+    color: $sidemenu-text-color;
+  }
 
-    .menu-item:hover{
-        background-color: $sidemenu-color;
-        color: $sidemenu-text-color;
-    }
-
-    .active{
-        background-color: $sidemenu-color;
-        border: none;
-        color:$sidemenu-text-color;
-        border-left: 5px solid $base-color;
-        box-sizing:  border-box;
-    }
+  .active {
+    background-color: $sidemenu-color;
+    border: none;
+    color: $sidemenu-text-color;
+    border-left: 5px solid $base-color;
+    box-sizing: border-box;
+  }
 }
 
 // Side boxes
 
-.sidebox{
-    .heading {
-        background-color: $base-color;
-        color: white;
-    }
+.sidebox {
+  .heading {
+    background-color: $base-color;
+    color: white;
+  }
 }
-
 
 // LeaderBoard Css
 
 .leaderboard-container {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    th {
-        background-color: $base-color;
-        color: white;
-    }
+  th {
+    background-color: $base-color;
+    color: white;
+  }
 }
 
 // Errors Css
 
-.error{
-    width: 90%;
-    max-width: 800px;
-    background-color: $error-color-light;
-    border: 1px solid $error-color;
-    color: $error-color;
-    border-radius: 10px;
-    margin: auto;
+.error {
+  width: 90%;
+  max-width: 800px;
+  background-color: $error-color-light;
+  border: 1px solid $error-color;
+  color: $error-color;
+  border-radius: 10px;
+  margin: auto;
 }
-
 
 // Cards
 
-.custom-card{
-    .circle-image{
-        width: 65%;
-        border-radius: 10rem;
-        margin: auto;
-        margin-top: 10px;
-    }
+.custom-card {
+  .circle-image {
+    width: 65%;
+    border-radius: 10rem;
+    margin: auto;
+    margin-top: 10px;
+  }
 }
-
 
 // Boxes
 
-.content-box{
-    background-color: white;
-    min-height: 85vh;
+.content-box {
+  background-color: white;
+  min-height: 85vh;
 }
 
-.center-box-container{
-    width: 100%;
-    height: 100%;
-    position: relative;
+.center-box-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-.center-box{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+.center-box {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.fixed-side-box{
-    height: 87vh;
-    background-color: white;
+.fixed-side-box {
+  height: 87vh;
+  background-color: white;
 }
-
 
 // Common Css
 
-.overflow-y-auto{
-    overflow-y: auto;
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
-.h-90vh{
-    height: 90vh;
+.h-90vh {
+  height: 90vh;
 }
 
-.pointer{
-    cursor: pointer;
+.pointer {
+  cursor: pointer;
 }
 
-.hover:hover{
-    background-color: rgba(185, 184, 184, 0.281);
+.hover:hover {
+  background-color: rgba(185, 184, 184, 0.281);
 }
-
-
 
 // Styling fixes
 
-.row{
-    margin: 0px;
+.row {
+  margin: 0px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.ql-editor{
-    min-height:200px;
+.ql-editor {
+  min-height: 200px;
 }
-

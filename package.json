@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -25,6 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prettify": "node_modules/.bin/prettier --write src/**/*.{js,scss,css,jsx}",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -46,6 +48,7 @@
   "devDependencies": {
     "bootstrap": "^5.0.0-alpha1",
     "bootstrap-loader": "^3.0.4",
+    "eslint-plugin-prettier": "^3.1.4",
     "gh-pages": "^3.0.0",
     "jquery": "^3.5.1",
     "tether": "^1.4.7"
