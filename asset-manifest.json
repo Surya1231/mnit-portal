@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/mnit-portal/static/css/main.128bd750.chunk.css",
-    "main.js": "/mnit-portal/static/js/main.7ff72117.chunk.js",
-    "main.js.map": "/mnit-portal/static/js/main.7ff72117.chunk.js.map",
+    "main.css": "/mnit-portal/static/css/main.aadcad1c.chunk.css",
+    "main.js": "/mnit-portal/static/js/main.3054f74f.chunk.js",
+    "main.js.map": "/mnit-portal/static/js/main.3054f74f.chunk.js.map",
     "runtime-main.js": "/mnit-portal/static/js/runtime-main.df74e656.js",
     "runtime-main.js.map": "/mnit-portal/static/js/runtime-main.df74e656.js.map",
-    "static/css/2.75c4ecca.chunk.css": "/mnit-portal/static/css/2.75c4ecca.chunk.css",
-    "static/js/2.8b438b35.chunk.js": "/mnit-portal/static/js/2.8b438b35.chunk.js",
-    "static/js/2.8b438b35.chunk.js.map": "/mnit-portal/static/js/2.8b438b35.chunk.js.map",
+    "static/css/2.06e46617.chunk.css": "/mnit-portal/static/css/2.06e46617.chunk.css",
+    "static/js/2.c319883d.chunk.js": "/mnit-portal/static/js/2.c319883d.chunk.js",
+    "static/js/2.c319883d.chunk.js.map": "/mnit-portal/static/js/2.c319883d.chunk.js.map",
     "index.html": "/mnit-portal/index.html",
-    "precache-manifest.69cc987887f17b8f2605688c2b47d1a2.js": "/mnit-portal/precache-manifest.69cc987887f17b8f2605688c2b47d1a2.js",
+    "precache-manifest.6055497c5840f8b0b8db7da8595a60b5.js": "/mnit-portal/precache-manifest.6055497c5840f8b0b8db7da8595a60b5.js",
     "service-worker.js": "/mnit-portal/service-worker.js",
-    "static/css/2.75c4ecca.chunk.css.map": "/mnit-portal/static/css/2.75c4ecca.chunk.css.map",
-    "static/css/main.128bd750.chunk.css.map": "/mnit-portal/static/css/main.128bd750.chunk.css.map",
-    "static/js/2.8b438b35.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.8b438b35.chunk.js.LICENSE.txt"
+    "static/css/2.06e46617.chunk.css.map": "/mnit-portal/static/css/2.06e46617.chunk.css.map",
+    "static/css/main.aadcad1c.chunk.css.map": "/mnit-portal/static/css/main.aadcad1c.chunk.css.map",
+    "static/js/2.c319883d.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.c319883d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.df74e656.js",
-    "static/css/2.75c4ecca.chunk.css",
-    "static/js/2.8b438b35.chunk.js",
-    "static/css/main.128bd750.chunk.css",
-    "static/js/main.7ff72117.chunk.js"
+    "static/css/2.06e46617.chunk.css",
+    "static/js/2.c319883d.chunk.js",
+    "static/css/main.aadcad1c.chunk.css",
+    "static/js/main.3054f74f.chunk.js"
   ]
 }
