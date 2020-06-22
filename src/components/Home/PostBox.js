@@ -1,13 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import NewComment from "./NewComment";
+import CopyOnClick from "../common/CopyOnClick";
 
-const PostBox = ({}) => {
+const CommentBox = () => {
+  return (
+    <div className="commentbox py-2 border-top">
+      <div className="row px-1">
+        <div className="col-12 px-0 py-0">this is My comment</div>
+        <div
+          className="col-12 text-muted px-0 py-0 text-small"
+          style={{ fontSize: "0.85rem" }}
+        >
+          10 min ago - Suryaprakash Agarwal
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PostBox = ({ post, open = false }) => {
+  const url = String(window.location);
+  const baseUrl = url.split("/")[0] + "//" + url.split("/")[2];
+  const [showComment, changeShowComment] = useState(open);
   return (
     <div className="post mt-3">
-      <div className="bg-white rounded py-2 px-4">
-        <div className="meta-data font-weight-bold text-lg">
+      <div className="bg-white rounded py-2 px-3 px-md-4">
+        <div className="meta-data font-weight-bold text-lg border-bottom pb-1">
           Anonymous
-          <span className="float-right pr-3"> 10min Ago</span>
+          <span className="float-right pr-3 font-weight-normal text-muted">
+            10min Ago
+          </span>
         </div>
         <div className="post-centent mt-2">
           Good market for iPhone and its apps, the rising number of IT companies
@@ -18,9 +40,17 @@ const PostBox = ({}) => {
           available in this sector makes iPhone development one of the most
           desired or chosen professions of the present times.
           <br />
-          <Link to="/post/30" target="_blank">
-            View full post
-          </Link>
+          <div className="info row">
+            <div className="col-6 px-0 py-0 text-primary">
+              <span className="pointer">
+                <CopyOnClick
+                  text="Copy post link"
+                  link={`${baseUrl}${process.env.PUBLIC_URL}/post/70`}
+                />
+              </span>
+            </div>
+            <div className="col-6 px-0 py-0 text-right text-muted">General</div>
+          </div>
         </div>
         <div className="action border-top mt-2">
           <div className="row">
@@ -30,14 +60,23 @@ const PostBox = ({}) => {
               </div>
             </div>
             <div className="py-2 px-0 col-6 hover">
-              <div className="text-center text-danger pointer">
-                <Link to="/post/30" target="_blank">
-                  Comment (30)
-                </Link>
+              <div
+                className="text-center text-danger pointer"
+                onClick={() => changeShowComment(!showComment)}
+              >
+                Comment (30)
               </div>
             </div>
           </div>
         </div>
+        {showComment && (
+          <div className="comments  mt-2">
+            <NewComment />
+            <CommentBox />
+            <CommentBox />
+            <CommentBox />
+          </div>
+        )}
       </div>
     </div>
   );

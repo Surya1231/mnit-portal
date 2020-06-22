@@ -150,6 +150,10 @@ $error-color-light: rgb(231, 176, 176);
   overflow-y: auto;
 }
 
+.text-base {
+  color: $base-color;
+}
+
 .h-90vh {
   height: 90vh;
 }

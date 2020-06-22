@@ -18,7 +18,7 @@ class Company extends React.Component {
 
   render() {
     return (
-      <div className="content-box pt-3 overflow-y-auto h-90vh">
+      <div className="content-box pt-3">
         <CompanyInputBar
           initialValues={this.state.values}
           onSubmit={this.onSubmit}

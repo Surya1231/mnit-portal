@@ -13,7 +13,7 @@ const ReportAnIssue = () => {
         Report An Issue
       </button>
       <div
-        className="modal fade"
+        className="modal fade text-dark"
         id="reportIssue"
         tabIndex={-1}
         role="dialog"

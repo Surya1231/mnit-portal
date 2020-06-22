@@ -14,12 +14,13 @@ class Home extends React.Component {
     categoryList: ["All", "General", "Interview", "Competitive"],
     post: [
       {
+        id: 1,
         postedBy: "",
         createdAt: "",
         category: "",
         anonymouse: false,
         content: "",
-        upvotes: 10,
+        upvotes: [],
         comments: [],
       },
     ],
@@ -60,13 +61,13 @@ class Home extends React.Component {
         <div className="col-lg-7 col-md-9 px-0 py-0">
           <div className="px-3 pb-3">
             <div
-              className="new-post-button bg-white text-center font-weight-bold text-primary rounded py-3 pointer"
+              className="new-post-button bg-white text-center font-weight-bold text-base rounded py-3 pointer"
               onClick={this.toggleNewPost}
             >
               {this.state.newPost ? "Back to Forum" : "Add New Post"}
             </div>
             {this.state.newPost ? (
-              <NewPost />
+              <NewPost categories={this.state.categoryList.slice(1)} />
             ) : (
               <div className="post-container">
                 <PostBox />

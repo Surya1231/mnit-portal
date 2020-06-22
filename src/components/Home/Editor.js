@@ -6,12 +6,12 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = { editorHtml: "", theme: "snow" };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(html) {
+  handleChange = (html) => {
     this.setState({ editorHtml: html });
-  }
+    this.props.onChange(html);
+  };
 
   render() {
     return (
