@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/mnit-portal/static/css/main.9acc3992.chunk.css",
-    "main.js": "/mnit-portal/static/js/main.c4b8ffb9.chunk.js",
-    "main.js.map": "/mnit-portal/static/js/main.c4b8ffb9.chunk.js.map",
+    "main.css": "/mnit-portal/static/css/main.ae091c14.chunk.css",
+    "main.js": "/mnit-portal/static/js/main.4666d8b1.chunk.js",
+    "main.js.map": "/mnit-portal/static/js/main.4666d8b1.chunk.js.map",
     "runtime-main.js": "/mnit-portal/static/js/runtime-main.df74e656.js",
     "runtime-main.js.map": "/mnit-portal/static/js/runtime-main.df74e656.js.map",
     "static/css/2.06e46617.chunk.css": "/mnit-portal/static/css/2.06e46617.chunk.css",
-    "static/js/2.a5e0eac2.chunk.js": "/mnit-portal/static/js/2.a5e0eac2.chunk.js",
-    "static/js/2.a5e0eac2.chunk.js.map": "/mnit-portal/static/js/2.a5e0eac2.chunk.js.map",
+    "static/js/2.4b534a34.chunk.js": "/mnit-portal/static/js/2.4b534a34.chunk.js",
+    "static/js/2.4b534a34.chunk.js.map": "/mnit-portal/static/js/2.4b534a34.chunk.js.map",
     "index.html": "/mnit-portal/index.html",
-    "precache-manifest.9a356bb6cd7c76f2aca1d5d5a9cf318d.js": "/mnit-portal/precache-manifest.9a356bb6cd7c76f2aca1d5d5a9cf318d.js",
+    "precache-manifest.7f0ead2b32b82fe520b8d2198bf5edd6.js": "/mnit-portal/precache-manifest.7f0ead2b32b82fe520b8d2198bf5edd6.js",
     "service-worker.js": "/mnit-portal/service-worker.js",
     "static/css/2.06e46617.chunk.css.map": "/mnit-portal/static/css/2.06e46617.chunk.css.map",
-    "static/css/main.9acc3992.chunk.css.map": "/mnit-portal/static/css/main.9acc3992.chunk.css.map",
-    "static/js/2.a5e0eac2.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.a5e0eac2.chunk.js.LICENSE.txt"
+    "static/css/main.ae091c14.chunk.css.map": "/mnit-portal/static/css/main.ae091c14.chunk.css.map",
+    "static/js/2.4b534a34.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.4b534a34.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.df74e656.js",
     "static/css/2.06e46617.chunk.css",
-    "static/js/2.a5e0eac2.chunk.js",
-    "static/css/main.9acc3992.chunk.css",
-    "static/js/main.c4b8ffb9.chunk.js"
+    "static/js/2.4b534a34.chunk.js",
+    "static/css/main.ae091c14.chunk.css",
+    "static/js/main.4666d8b1.chunk.js"
   ]
 }
