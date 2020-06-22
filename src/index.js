@@ -3,14 +3,18 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, withRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const Main = withRouter((props) => <App {...props} />);
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Main />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Main />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

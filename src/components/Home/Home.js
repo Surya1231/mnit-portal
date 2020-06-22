@@ -6,6 +6,7 @@ import StatsBox from "../common/StatsBox";
 import { animateValue } from "../../utils/animation";
 import PostBox from "./PostBox";
 import NewPost from "./NewPost";
+import { connect } from "react-redux";
 
 class Home extends React.Component {
   state = {
@@ -27,9 +28,13 @@ class Home extends React.Component {
   };
 
   toggleNewPost = () => {
-    this.setState({
-      newPost: !this.state.newPost,
-    });
+    if (this.state.newPost || this.props.user)
+      this.setState({
+        newPost: !this.state.newPost,
+      });
+    else {
+      this.props.history.push("/login");
+    }
   };
 
   changeCategory = (index) => {
@@ -85,4 +90,10 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

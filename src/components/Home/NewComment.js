@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class NewComment extends React.Component {
   state = {
@@ -14,6 +15,10 @@ class NewComment extends React.Component {
   };
 
   changeCommenting = (value) => {
+    if (value && this.props.user === null) {
+      // Notify to login
+      return;
+    }
     this.setState({
       commenting: value,
     });
@@ -34,11 +39,14 @@ class NewComment extends React.Component {
       >
         <textarea
           className="w-100 px-3 py-1"
-          placeholder="Add new comment here"
+          placeholder={
+            this.props.user ? "Add new comment" : "Please login to add comment"
+          }
           name="comment"
           rows={this.state.commenting ? 4 : 2}
           value={this.state.comment}
           onChange={this.onChangeHandler}
+          disabled={!this.props.user}
         />
         {this.state.commenting && (
           <div className="buttons row">
@@ -61,6 +69,7 @@ class NewComment extends React.Component {
               <button
                 className="btn btn-outline-primary btn-sm px-4"
                 onClick={this.onSubmit}
+                disabled={!this.props.user}
               >
                 Submit
               </button>
@@ -72,4 +81,10 @@ class NewComment extends React.Component {
   }
 }
 
-export default NewComment;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewComment);

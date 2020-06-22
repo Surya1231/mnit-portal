@@ -16,8 +16,14 @@ import Login from "./components/Authentication/Login";
 import FullPost from "./components/Home/FullPost";
 
 import "./css/app.scss";
+import { authLocalUser } from "./store/reducers/auth";
+import { connect } from "react-redux";
+import RedirectIfNotAuth from "./components/common/RedirectIfNotAuth";
 
 class App extends React.Component {
+  componentDidMount = () => {
+    this.props.authLocalUser();
+  };
   render() {
     return (
       <div className="app">
@@ -41,10 +47,11 @@ class App extends React.Component {
               path="/interview"
               render={(props) => <Interview {...props} />}
             />
-            <Route
+            <RedirectIfNotAuth
               exact
               path="/company"
-              render={(props) => <Company {...props} />}
+              user={this.props.user}
+              component={Company}
             />
             <Route
               exact
@@ -64,4 +71,14 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    authLocalUser: () => dispatch(authLocalUser()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

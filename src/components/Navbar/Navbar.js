@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ReportAnIssue from "./ReportAnIssue";
+import AuthBar from "./AuthBar";
 
 const Navbar = ({ pathname }) => {
   return (
@@ -95,14 +96,8 @@ const Navbar = ({ pathname }) => {
                 News
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link ${pathname === "/login" ? "active" : ""}`}
-                to="/login"
-              >
-                Login
-              </Link>
-            </li>
+
+            <AuthBar pathname={pathname} />
             <ReportAnIssue />
           </ul>
         </div>
