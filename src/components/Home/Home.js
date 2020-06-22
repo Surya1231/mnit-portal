@@ -9,6 +9,8 @@ import NewPost from "./NewPost";
 import { connect } from "react-redux";
 import { SpinnerLoader } from "../common/Loadings";
 import { FullScreenError } from "../common/Errors";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { IoMdArrowBack } from "react-icons/io";
 
 class Home extends React.Component {
   state = {
@@ -59,15 +61,40 @@ class Home extends React.Component {
               className="new-post-button bg-white text-center font-weight-bold text-base rounded py-3 pointer"
               onClick={this.toggleNewPost}
             >
-              {this.state.newPost ? "Back to Forum" : "Add New Post"}
+              {this.state.newPost ? (
+                <>
+                  <div className="d-inline-block pr-1 icon-top">
+                    <IoMdArrowBack size={18} />
+                  </div>{" "}
+                  Back to Forum
+                </>
+              ) : (
+                <>
+                  <div className="d-inline-block pr-1 icon-top">
+                    <AiOutlinePlusCircle size={18} />
+                  </div>
+                  Add New Post
+                </>
+              )}
             </div>
             {this.state.newPost ? (
-              <NewPost categories={this.state.categoryList.slice(1)} />
+              <NewPost
+                categories={this.state.categoryList.slice(1)}
+                toggleNewPost={this.toggleNewPost}
+              />
             ) : (
               <div className="post-container">
-                {this.props.postLoading && <SpinnerLoader />}
-                {this.props.postError && <FullScreenError />}
-                {this.props.posts &&
+                {this.props.postLoading && (
+                  <div className="pt-5">
+                    <SpinnerLoader />
+                  </div>
+                )}
+                {this.props.postError && (
+                  <FullScreenError {...this.props.postError} />
+                )}
+                {!this.props.postLoading &&
+                  !this.props.postError &&
+                  this.props.posts &&
                   this.props.posts.map((item) => {
                     if (this.state.category === 0)
                       return <PostBox post={item} key={item.id} />;

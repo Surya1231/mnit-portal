@@ -2,7 +2,7 @@ import React from "react";
 
 const SideMenu = ({ optionList = [], heading, active = 1, onClickHandler }) => {
   return (
-    <div className="sidemenu">
+    <div className="sidemenu font-sm">
       <ul className="list-group">
         {heading && <li className="list-group-item heading"> {heading} </li>}
         {optionList.map((menu, index) => (

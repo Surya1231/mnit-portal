@@ -3,5 +3,5 @@ export const getUserName = (email) => {
 };
 
 export const verifyEmail = (email) => {
-  return email.indexOf("@mnit.ac.in") !== -1;
+  return email.endsWith("@mnit.ac.in");
 };

@@ -4,7 +4,10 @@ import { CenterDiv } from "../../common/ResponsiveDiv";
 const Github = () => {
   return (
     <CenterDiv>
-      <div className="card custom-card" style={{ width: "30rem" }}>
+      <div
+        className="card custom-card mx-auto px-2"
+        style={{ maxWidth: "30rem" }}
+      >
         <img
           src={`${process.env.PUBLIC_URL}/assets/logos/logo.png`}
           className="card-img-top circle-image"

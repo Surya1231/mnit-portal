@@ -69,7 +69,7 @@ class Leaderboard extends React.Component {
 
   render() {
     return (
-      <div className="shadow content-box pt-3">
+      <div className="shadow content-box pt-3 font-sm">
         <InputBar
           onSubmit={this.onSubmit}
           initialValues={this.state.values}

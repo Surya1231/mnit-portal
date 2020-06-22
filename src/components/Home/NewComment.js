@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addNewComment } from "../../store/reducers/home";
 
 class NewComment extends React.Component {
   state = {
@@ -28,7 +29,14 @@ class NewComment extends React.Component {
   };
 
   onSubmit = () => {
-    console.log(this.state);
+    this.props.addComment(this.props.id, {
+      id: 10,
+      comment: this.state.comment,
+      commentedBy: this.props.user,
+      anonymous: this.state.anonymous ? true : false,
+      createdAt: new Date(),
+    });
+    this.setState({ comment: "", commenting: false });
   };
 
   render() {
@@ -47,6 +55,7 @@ class NewComment extends React.Component {
           value={this.state.comment}
           onChange={this.onChangeHandler}
           disabled={!this.props.user}
+          required
         />
         {this.state.commenting && (
           <div className="buttons row">
@@ -85,6 +94,10 @@ const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addComment: (id, comment) => dispatch(addNewComment(id, comment)),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewComment);

@@ -78,6 +78,13 @@ $error-color-light: rgb(231, 176, 176);
   }
 }
 
+// Home css
+
+.new-post-button:hover {
+  box-sizing: border-box;
+  border: 1px solid $base-color !important;
+}
+
 // LeaderBoard Css
 
 .leaderboard-container {
@@ -117,6 +124,10 @@ $error-color-light: rgb(231, 176, 176);
   }
 }
 
+.icon-top {
+  position: relative;
+  top: -2px;
+}
 // Boxes
 
 .content-box {
@@ -170,6 +181,9 @@ $error-color-light: rgb(231, 176, 176);
   background-color: rgba(185, 184, 184, 0.281);
 }
 
+.font-sm {
+  font-size: 0.9rem;
+}
 // Styling fixes
 
 .row {
