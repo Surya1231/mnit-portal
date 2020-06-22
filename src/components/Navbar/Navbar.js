@@ -6,7 +6,7 @@ import AuthBar from "./AuthBar";
 const Navbar = ({ pathname }) => {
   return (
     <div className="navbar-container">
-      <nav className="navbar navbar-expand-lg navbar-dark  px-4">
+      <nav className="navbar navbar-expand-lg navbar-dark  px-4 ">
         <img
           src={`${process.env.PUBLIC_URL}/assets/logos/logo.png`}
           className="mr-2"

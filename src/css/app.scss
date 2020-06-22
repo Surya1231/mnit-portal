@@ -29,7 +29,7 @@ $error-color-light: rgb(231, 176, 176);
   .navbar-brand {
     font-weight: bold;
     font-size: larger;
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 
   .active {
@@ -38,8 +38,8 @@ $error-color-light: rgb(231, 176, 176);
   }
 
   .nav-link {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 }
 
@@ -148,6 +148,10 @@ $error-color-light: rgb(231, 176, 176);
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .text-base {

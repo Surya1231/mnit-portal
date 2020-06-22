@@ -7,24 +7,14 @@ import { animateValue } from "../../utils/animation";
 import PostBox from "./PostBox";
 import NewPost from "./NewPost";
 import { connect } from "react-redux";
+import { SpinnerLoader } from "../common/Loadings";
+import { FullScreenError } from "../common/Errors";
 
 class Home extends React.Component {
   state = {
     category: 0,
     newPost: false,
     categoryList: ["All", "General", "Interview", "Competitive"],
-    post: [
-      {
-        id: 1,
-        postedBy: "",
-        createdAt: "",
-        category: "",
-        anonymouse: false,
-        content: "",
-        upvotes: [],
-        comments: [],
-      },
-    ],
   };
 
   toggleNewPost = () => {
@@ -75,12 +65,19 @@ class Home extends React.Component {
               <NewPost categories={this.state.categoryList.slice(1)} />
             ) : (
               <div className="post-container">
-                <PostBox />
-                <PostBox />
-                <PostBox />
-                <PostBox />
-                <PostBox />
-                <PostBox />
+                {this.props.postLoading && <SpinnerLoader />}
+                {this.props.postError && <FullScreenError />}
+                {this.props.posts &&
+                  this.props.posts.map((item) => {
+                    if (this.state.category === 0)
+                      return <PostBox post={item} key={item.id} />;
+                    else if (
+                      this.state.categoryList[this.state.category] ===
+                      item.category
+                    )
+                      return <PostBox post={item} key={item.id} />;
+                    else return <React.Fragment key={item.id}></React.Fragment>;
+                  })}
               </div>
             )}
           </div>
@@ -92,6 +89,9 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => ({
   user: state.auth.user,
+  posts: state.home.posts,
+  postLoading: state.home.loading,
+  postError: state.home.error,
 });
 
 const mapDispatchToProps = {};

@@ -9,9 +9,8 @@ const AuthBar = (props) => {
     <>
       {props.user ? (
         <li className="nav-item dropdown">
-          <a
+          <span
             className="nav-link dropdown-toggle"
-            href="#"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -19,7 +18,7 @@ const AuthBar = (props) => {
             aria-expanded="false"
           >
             {getUserName(props.user)}
-          </a>
+          </span>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <span className="dropdown-item d-block pointer">Profile</span>
             <span

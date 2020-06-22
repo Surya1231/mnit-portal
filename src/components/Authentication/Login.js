@@ -1,7 +1,6 @@
 import React from "react";
 import { authenticateUser, logoutAuthUser } from "../../store/reducers/auth";
 import { connect } from "react-redux";
-import { CenterDiv } from "../common/ResponsiveDiv";
 import { verifyEmail } from "../../utils/username";
 
 class Login extends React.Component {

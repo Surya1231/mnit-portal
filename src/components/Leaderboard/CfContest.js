@@ -3,7 +3,7 @@ import React from "react";
 const CfContest = ({ data, contest }) => {
   return (
     <>
-      <h3 className="text-center mb-4 text-primary">
+      <h5 className="text-center mb-4 text-primary">
         <a
           rel="noopener noreferrer"
           target="_blank"
@@ -11,7 +11,7 @@ const CfContest = ({ data, contest }) => {
         >
           {`#${contest.id} ${contest.name}`}
         </a>
-      </h3>
+      </h5>
       <table className="table table-bordered table-striped">
         <thead className="thead-dark">
           <tr>
