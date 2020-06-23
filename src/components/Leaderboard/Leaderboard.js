@@ -1,9 +1,6 @@
 import React from "react";
 import InputBar from "./InputBar";
-import {
-  getCfLeaderboard,
-  getCfRecentContest,
-} from "../../api/codeforces/codeforces";
+import { getCfLeaderboard, getCfRecentContest } from "../../api/codeforces";
 import Overall from "./Overall";
 import CfContest from "./CfContest";
 import { SpinnerLoader } from "../common/Loadings";

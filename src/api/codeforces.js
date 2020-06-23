@@ -3,7 +3,7 @@ import {
   cf_first_year,
   cf_second_year,
   cf_third_year,
-} from "../../data/static/codeforces";
+} from "../data/static/codeforcesData";
 
 function generateString(userList) {
   return userList.join(";");

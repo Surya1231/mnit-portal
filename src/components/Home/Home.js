@@ -5,12 +5,13 @@ import { MobileHiddenDiv } from "../common/ResponsiveDiv";
 import StatsBox from "../common/StatsBox";
 import { animateValue } from "../../utils/animation";
 import PostBox from "./PostBox";
-import NewPost from "./NewPost";
+import NewPost from "./new/NewPost";
 import { connect } from "react-redux";
 import { SpinnerLoader } from "../common/Loadings";
 import { FullScreenError } from "../common/Errors";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
+import { loginWarn } from "../common/notification";
 
 class Home extends React.Component {
   state = {
@@ -25,6 +26,7 @@ class Home extends React.Component {
         newPost: !this.state.newPost,
       });
     else {
+      loginWarn();
       this.props.history.push("/login");
     }
   };

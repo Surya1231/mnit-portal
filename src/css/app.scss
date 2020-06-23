@@ -79,10 +79,13 @@ $error-color-light: rgb(231, 176, 176);
 }
 
 // Home css
+.new-post-button {
+  box-sizing: border-box;
+  border: 1px solid white;
+}
 
 .new-post-button:hover {
-  box-sizing: border-box;
-  border: 1px solid $base-color !important;
+  border: 1px solid $base-color;
 }
 
 // LeaderBoard Css

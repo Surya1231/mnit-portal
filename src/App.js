@@ -14,16 +14,21 @@ import Company from "./components/Company/Company";
 import { FullScreenError } from "./components/common/Errors";
 import Login from "./components/Authentication/Login";
 import FullPost from "./components/Home/FullPost";
-
-import "./css/app.scss";
 import { authLocalUser } from "./store/reducers/auth";
 import { connect } from "react-redux";
 import RedirectIfNotAuth from "./components/common/RedirectIfNotAuth";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import "./css/app.scss";
+
+toast.configure();
 class App extends React.Component {
   componentDidMount = () => {
     this.props.authLocalUser();
   };
+
   render() {
     return (
       <div className="app">

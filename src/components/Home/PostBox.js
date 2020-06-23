@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import NewComment from "./NewComment";
+import NewComment from "./new/NewComment";
 import CopyOnClick from "../common/CopyOnClick";
 import { getUserName } from "../../utils/username";
 import { formatPostDate } from "../../utils/datetime";
 import { AiOutlineComment, AiOutlineClockCircle } from "react-icons/ai";
-import UpvotePost from "./UpvotePost";
+import UpvotePost from "./new/UpvotePost";
 
 const CommentBox = ({ comment }) => {
   return (
@@ -45,7 +45,7 @@ const PostBox = ({ post, open = false }) => {
       <div className="bg-white rounded py-2 px-3 px-md-4">
         <div className="meta-data font-weight-bold text-lg border-bottom pb-1">
           {post.anonymous ? "Anonymous" : getUserName(post.postedBy)}
-          <span className="float-right pr-3 font-weight-normal text-muted">
+          <span className="float-right  font-weight-normal text-muted">
             {formatPostDate(post.createdAt)}
             <div className="d-inline-block pl-1">
               <AiOutlineClockCircle size={15} />
@@ -89,7 +89,7 @@ const PostBox = ({ post, open = false }) => {
 
         {showComment && (
           <>
-            <LikeBox likes={post.upvotes} />
+            {/* <LikeBox likes={post.upvotes} /> */}
             <div className="comments  mt-2">
               <NewComment id={post.id} />
               {post.comments.map((item) => (

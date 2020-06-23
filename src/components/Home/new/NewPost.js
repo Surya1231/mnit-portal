@@ -1,6 +1,6 @@
 import React from "react";
 import Editor from "./Editor";
-import { createNewPost } from "../../store/reducers/home";
+import { createNewPost } from "../../../store/reducers/home";
 import { connect } from "react-redux";
 
 class NewPost extends React.Component {

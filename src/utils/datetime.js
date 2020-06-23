@@ -5,6 +5,5 @@ export const formatPostDate = (date) => {
     if (time < 60 * 60000) return Math.round(time / 60000) + " mins ago";
     return Math.round(time / (60 * 60000)) + " hours ago";
   }
-  console.log(currentDate, date, time);
   return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
 };

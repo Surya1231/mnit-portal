@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addNewComment } from "../../store/reducers/home";
+import { addNewComment } from "../../../store/reducers/home";
 
 class NewComment extends React.Component {
   state = {

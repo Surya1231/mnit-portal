@@ -2,6 +2,7 @@ import React from "react";
 import { authenticateUser, logoutAuthUser } from "../../store/reducers/auth";
 import { connect } from "react-redux";
 import { verifyEmail } from "../../utils/username";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -119,8 +120,16 @@ class Login extends React.Component {
             >
               Hello {this.props.user}, <br />
               <br />
+              <Link to="/">
+                <button
+                  className="btn btn-outline-info px-4 mr-4"
+                  onClick={this.onLogout}
+                >
+                  Home
+                </button>
+              </Link>
               <button
-                className="btn btn-outline-info px-4"
+                className="btn btn-outline-danger px-4"
                 onClick={this.onLogout}
               >
                 Logout
