@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/mnit-portal/static/css/main.c87d8323.chunk.css",
-    "main.js": "/mnit-portal/static/js/main.d0a96b44.chunk.js",
-    "main.js.map": "/mnit-portal/static/js/main.d0a96b44.chunk.js.map",
+    "main.js": "/mnit-portal/static/js/main.ba0c7e48.chunk.js",
+    "main.js.map": "/mnit-portal/static/js/main.ba0c7e48.chunk.js.map",
     "runtime-main.js": "/mnit-portal/static/js/runtime-main.df74e656.js",
     "runtime-main.js.map": "/mnit-portal/static/js/runtime-main.df74e656.js.map",
     "static/css/2.d6b3dacc.chunk.css": "/mnit-portal/static/css/2.d6b3dacc.chunk.css",
-    "static/js/2.a7682748.chunk.js": "/mnit-portal/static/js/2.a7682748.chunk.js",
-    "static/js/2.a7682748.chunk.js.map": "/mnit-portal/static/js/2.a7682748.chunk.js.map",
+    "static/js/2.03dbc33b.chunk.js": "/mnit-portal/static/js/2.03dbc33b.chunk.js",
+    "static/js/2.03dbc33b.chunk.js.map": "/mnit-portal/static/js/2.03dbc33b.chunk.js.map",
     "index.html": "/mnit-portal/index.html",
-    "precache-manifest.d88d6757c564496328c7dd2da462133f.js": "/mnit-portal/precache-manifest.d88d6757c564496328c7dd2da462133f.js",
+    "precache-manifest.558c32b8165bc40ba86729fd1e022b1f.js": "/mnit-portal/precache-manifest.558c32b8165bc40ba86729fd1e022b1f.js",
     "service-worker.js": "/mnit-portal/service-worker.js",
     "static/css/2.d6b3dacc.chunk.css.map": "/mnit-portal/static/css/2.d6b3dacc.chunk.css.map",
     "static/css/main.c87d8323.chunk.css.map": "/mnit-portal/static/css/main.c87d8323.chunk.css.map",
-    "static/js/2.a7682748.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.a7682748.chunk.js.LICENSE.txt"
+    "static/js/2.03dbc33b.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.03dbc33b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.df74e656.js",
     "static/css/2.d6b3dacc.chunk.css",
-    "static/js/2.a7682748.chunk.js",
+    "static/js/2.03dbc33b.chunk.js",
     "static/css/main.c87d8323.chunk.css",
-    "static/js/main.d0a96b44.chunk.js"
+    "static/js/main.ba0c7e48.chunk.js"
   ]
 }
