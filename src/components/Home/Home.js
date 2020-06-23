@@ -11,7 +11,8 @@ import { SpinnerLoader } from "../common/Loadings";
 import { FullScreenError } from "../common/Errors";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
-import { loginWarn } from "../common/notification";
+import { loginWarn, errorNoty } from "../common/notification";
+import { clearHomeActionError } from "../../store/reducers/home";
 
 class Home extends React.Component {
   state = {
@@ -37,8 +38,17 @@ class Home extends React.Component {
     });
   };
 
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.actionError) this.actionMessage(nextProps.actionError);
+  };
+
   componentDidMount = () => {
     animateValue("totalValue", 0, 1000, 10);
+  };
+
+  actionMessage = (msg) => {
+    errorNoty(msg);
+    this.props.clearActionError();
   };
 
   render() {
@@ -121,8 +131,13 @@ const mapStateToProps = (state) => ({
   posts: state.home.posts,
   postLoading: state.home.loading,
   postError: state.home.error,
+  actionError: state.home.actionError,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearActionError: () => dispatch(clearHomeActionError()),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

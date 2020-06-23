@@ -7,40 +7,81 @@ export const FETCH_POST_FAILED = "FETCH_POST_FAILED";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const ADD_NEW_COMMENT = "ADD_NEW_COMMENT";
 export const ADD_NEW_UPVOTE = "ADD_NEW_UPVOTE";
+export const SET_HOME_ACTION_ERROR = "SET_HOME_ACTION_ERROR";
+export const CLEAR_HOME_ACTION_ERROR = "CLEAR_HOME_ACTION_ERROR";
 
 // Intial State
 const initialState = {
   loading: false,
   posts: initialPostData,
   error: null,
+  actionError: null,
 };
 
 // Action Creator
 
-export const createNewPost = (post) => {
+export const fetchPostInitial = () => {
   return {
-    type: ADD_NEW_POST,
-    payload: post,
+    type: FETCH_POST_INITIAL,
+  };
+};
+
+export const fetchPost = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchPostInitial);
+    //Call
+  };
+};
+
+export const createNewPost = (post) => {
+  return (dispatch, getState) => {
+    //Asyc Call to add post
+    dispatch({
+      type: ADD_NEW_POST,
+      payload: post,
+    });
   };
 };
 
 export const addNewComment = (id, comment) => {
-  return {
-    type: ADD_NEW_COMMENT,
-    payload: {
-      id: id,
-      comment: comment,
-    },
+  return (dispatch, getState) => {
+    //Async call
+    dispatch({
+      type: ADD_NEW_COMMENT,
+      payload: {
+        id: id,
+        comment: comment,
+      },
+    });
   };
 };
 
 export const addNewUpvote = (id, user) => {
+  return (dispatch, getState) => {
+    //Async call
+    dispatch(
+      setHomeActionError("Server Error! Failed to Upvote Please try again")
+    );
+    dispatch({
+      type: ADD_NEW_UPVOTE,
+      payload: {
+        id: id,
+        user: user,
+      },
+    });
+  };
+};
+
+export const setHomeActionError = (err) => {
   return {
-    type: ADD_NEW_UPVOTE,
-    payload: {
-      id: id,
-      user: user,
-    },
+    type: SET_HOME_ACTION_ERROR,
+    payload: err,
+  };
+};
+
+export const clearHomeActionError = () => {
+  return {
+    type: CLEAR_HOME_ACTION_ERROR,
   };
 };
 
@@ -54,6 +95,7 @@ export function homeReducer(state = initialState, action) {
         error: null,
       };
     }
+
     case FETCH_POST_SUCCESS: {
       return {
         ...state,
@@ -62,6 +104,7 @@ export function homeReducer(state = initialState, action) {
         posts: action.payload,
       };
     }
+
     case FETCH_POST_FAILED: {
       return {
         ...state,
@@ -70,12 +113,14 @@ export function homeReducer(state = initialState, action) {
         errInfo: action.payload,
       };
     }
+
     case ADD_NEW_POST: {
       return {
         ...state,
         posts: [action.payload, ...state.posts],
       };
     }
+
     case ADD_NEW_COMMENT: {
       return {
         ...state,
@@ -87,6 +132,7 @@ export function homeReducer(state = initialState, action) {
         }),
       };
     }
+
     case ADD_NEW_UPVOTE: {
       return {
         ...state,
@@ -99,6 +145,21 @@ export function homeReducer(state = initialState, action) {
         }),
       };
     }
+
+    case SET_HOME_ACTION_ERROR: {
+      return {
+        ...state,
+        actionError: action.payload,
+      };
+    }
+
+    case CLEAR_HOME_ACTION_ERROR: {
+      return {
+        ...state,
+        actionError: null,
+      };
+    }
+
     default:
       return state;
   }

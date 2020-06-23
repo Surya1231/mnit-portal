@@ -121,12 +121,7 @@ class Login extends React.Component {
               Hello {this.props.user}, <br />
               <br />
               <Link to="/">
-                <button
-                  className="btn btn-outline-info px-4 mr-4"
-                  onClick={this.onLogout}
-                >
-                  Home
-                </button>
+                <button className="btn btn-outline-info px-4 mr-4">Home</button>
               </Link>
               <button
                 className="btn btn-outline-danger px-4"
