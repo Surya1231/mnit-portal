@@ -19,7 +19,7 @@ export const homeActionError = (error) => {
 };
 
 export const createNewPost = (post) => {
-  return (dispatch, { getFirebase }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firestore = getFirebase().firestore();
     firestore
       .collection("posts")
@@ -37,7 +37,7 @@ export const createNewPost = (post) => {
 };
 
 export const addNewComment = (id, comment) => {
-  return (dispatch, { getFirebase }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firestore = getFirebase().firestore();
     firestore
       .collection("posts")
