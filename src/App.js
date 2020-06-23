@@ -17,7 +17,6 @@ import FullPost from "./components/Home/FullPost";
 import { authLocalUser } from "./store/reducers/auth";
 import { connect } from "react-redux";
 import RedirectIfNotAuth from "./components/common/RedirectIfNotAuth";
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

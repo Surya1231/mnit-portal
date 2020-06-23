@@ -1,163 +1,102 @@
-import { initialPostData } from "../../data/static/postData";
+import { successNoty, errorNoty } from "../../components/common/notification";
 
-// Actions
-export const FETCH_POST_INITIAL = "FETCH_POST_INITIAL";
-export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
-export const FETCH_POST_FAILED = "FETCH_POST_FAILED";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const ADD_NEW_COMMENT = "ADD_NEW_COMMENT";
 export const ADD_NEW_UPVOTE = "ADD_NEW_UPVOTE";
-export const SET_HOME_ACTION_ERROR = "SET_HOME_ACTION_ERROR";
-export const CLEAR_HOME_ACTION_ERROR = "CLEAR_HOME_ACTION_ERROR";
+export const HOME_ACTION_ERROR = "HOME_ACTION_ERROR";
 
-// Intial State
 const initialState = {
+  posts: [],
   loading: false,
-  posts: initialPostData,
   error: null,
-  actionError: null,
 };
 
-// Action Creator
-
-export const fetchPostInitial = () => {
+export const homeActionError = (error) => {
   return {
-    type: FETCH_POST_INITIAL,
-  };
-};
-
-export const fetchPost = () => {
-  return (dispatch, getState) => {
-    dispatch(fetchPostInitial);
-    //Call
+    type: HOME_ACTION_ERROR,
+    error,
   };
 };
 
 export const createNewPost = (post) => {
-  return (dispatch, getState) => {
-    //Asyc Call to add post
-    dispatch({
-      type: ADD_NEW_POST,
-      payload: post,
-    });
+  return (dispatch, { getFirebase }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("posts")
+      .add(post)
+      .then((res) => {
+        dispatch({
+          type: ADD_NEW_POST,
+          res,
+        });
+      })
+      .catch((error) => {
+        dispatch(homeActionError(error));
+      });
   };
 };
 
 export const addNewComment = (id, comment) => {
-  return (dispatch, getState) => {
-    //Async call
-    dispatch({
-      type: ADD_NEW_COMMENT,
-      payload: {
-        id: id,
-        comment: comment,
-      },
-    });
+  return (dispatch, { getFirebase }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("posts")
+      .doc(id)
+      .collection("comments")
+      .add(comment)
+      .then((res) => {
+        dispatch({
+          type: ADD_NEW_COMMENT,
+          id,
+          res,
+        });
+      })
+      .catch((error) => {
+        dispatch(homeActionError(error));
+      });
   };
 };
 
 export const addNewUpvote = (id, user) => {
-  return (dispatch, getState) => {
-    //Async call
-    dispatch(
-      setHomeActionError("Server Error! Failed to Upvote Please try again")
-    );
-    dispatch({
-      type: ADD_NEW_UPVOTE,
-      payload: {
-        id: id,
-        user: user,
-      },
-    });
-  };
-};
-
-export const setHomeActionError = (err) => {
-  return {
-    type: SET_HOME_ACTION_ERROR,
-    payload: err,
-  };
-};
-
-export const clearHomeActionError = () => {
-  return {
-    type: CLEAR_HOME_ACTION_ERROR,
+  return (dispatch, getState, { getFirebase }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("posts")
+      .doc(id)
+      .collection("upvotes")
+      .add({ upvotedBy: user })
+      .then((res) => {
+        dispatch({
+          type: ADD_NEW_UPVOTE,
+          id,
+          res,
+        });
+      })
+      .catch((error) => {
+        dispatch(homeActionError(error));
+      });
   };
 };
 
 // Reducer
 export function homeReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_POST_INITIAL: {
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-    }
-
-    case FETCH_POST_SUCCESS: {
-      return {
-        ...state,
-        error: null,
-        loading: false,
-        posts: action.payload,
-      };
-    }
-
-    case FETCH_POST_FAILED: {
-      return {
-        ...state,
-        error: action.payload,
-        loading: false,
-        errInfo: action.payload,
-      };
-    }
-
     case ADD_NEW_POST: {
-      return {
-        ...state,
-        posts: [action.payload, ...state.posts],
-      };
+      successNoty("Your post has been added Successfully ");
+      return state;
     }
 
     case ADD_NEW_COMMENT: {
-      return {
-        ...state,
-        posts: state.posts.map((item) => {
-          if (item.id === action.payload.id) {
-            item.comments = [action.payload.comment, ...item.comments];
-            return item;
-          } else return item;
-        }),
-      };
+      return state;
     }
 
     case ADD_NEW_UPVOTE: {
-      return {
-        ...state,
-        posts: state.posts.map((item) => {
-          if (item.id === action.payload.id) {
-            item.upvotes = [action.payload.user, ...item.upvotes];
-            console.log("Yaha aaya tha me");
-            return item;
-          } else return item;
-        }),
-      };
+      return state;
     }
 
-    case SET_HOME_ACTION_ERROR: {
-      return {
-        ...state,
-        actionError: action.payload,
-      };
-    }
-
-    case CLEAR_HOME_ACTION_ERROR: {
-      return {
-        ...state,
-        actionError: null,
-      };
+    case HOME_ACTION_ERROR: {
+      errorNoty(action.error);
+      return state;
     }
 
     default:

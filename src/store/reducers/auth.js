@@ -8,10 +8,9 @@ const localStorageUser = "mnit_user";
 
 // Intial State
 const initialState = {
-  loading: false,
   user: null,
-  err: false,
-  errInfo: {},
+  error: false,
+  errorInfo: null,
 };
 
 // Action Creator
@@ -27,7 +26,7 @@ export const authLocalUser = () => {
   };
 };
 
-export const authenticateUser = (user, otp) => {
+export const authenticateUser = (user) => {
   return {
     type: AUTH_USER_SUCCESS,
     payload: {
@@ -44,8 +43,6 @@ export function authReducer(state = initialState, action) {
         return {
           ...state,
           user: localStorage.getItem(localStorageUser),
-          loading: false,
-          err: false,
         };
       return state;
     }
@@ -53,25 +50,22 @@ export function authReducer(state = initialState, action) {
       localStorage.setItem(localStorageUser, action.payload.user);
       return {
         ...state,
-        err: false,
-        loading: false,
+        error: false,
         user: action.payload.user,
       };
     }
     case AUTH_USER_FAIL: {
       return {
         ...state,
-        err: true,
-        loading: false,
-        errInfo: action.payload,
+        error: true,
+        errorInfo: action.payload,
       };
     }
     case AUTH_USER_LOGOUT: {
       localStorage.removeItem(localStorageUser);
       return {
         ...state,
-        err: false,
-        loading: false,
+        error: false,
         user: null,
       };
     }

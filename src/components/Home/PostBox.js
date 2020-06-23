@@ -5,6 +5,9 @@ import { getUserName } from "../../utils/username";
 import { formatPostDate } from "../../utils/datetime";
 import { AiOutlineComment, AiOutlineClockCircle } from "react-icons/ai";
 import UpvotePost from "./new/UpvotePost";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
 const CommentBox = ({ comment }) => {
   return (
@@ -26,17 +29,17 @@ const CommentBox = ({ comment }) => {
   );
 };
 
-const LikeBox = ({ likes }) => {
-  return (
-    <div className="likebox py-2 border-top">
-      <span className="text-base">
-        Upvoted By : <span className="text-muted">{likes.join(" , ")}</span>
-      </span>
-    </div>
-  );
-};
+// const LikeBox = ({ likes }) => {
+//   return (
+//     <div className="likebox py-2 border-top">
+//       <span className="text-base">
+//         Upvoted By : <span className="text-muted">{likes.join(" , ")}</span>
+//       </span>
+//     </div>
+//   );
+// };
 
-const PostBox = ({ post, open = false }) => {
+const PostBox = ({ post, open = false, comments = [], upvotes = [] }) => {
   const url = String(window.location);
   const baseUrl = url.split("/")[0] + "//" + url.split("/")[2];
   const [showComment, changeShowComment] = useState(open);
@@ -71,7 +74,7 @@ const PostBox = ({ post, open = false }) => {
         <div className="action border-top mt-2">
           <div className="row">
             <div className="py-2 px-0 col-6 hover">
-              <UpvotePost id={post.id} upvotes={post.upvotes} />
+              <UpvotePost id={post.id} upvotes={upvotes} />
             </div>
             <div className="py-2 px-0 col-6 hover">
               <div
@@ -81,7 +84,7 @@ const PostBox = ({ post, open = false }) => {
                 <div className="d-inline-block pr-1 icon-top">
                   <AiOutlineComment size={20} />
                 </div>
-                Comments ({post.comments.length})
+                Comments ({comments.length})
               </div>
             </div>
           </div>
@@ -92,7 +95,7 @@ const PostBox = ({ post, open = false }) => {
             {/* <LikeBox likes={post.upvotes} /> */}
             <div className="comments  mt-2">
               <NewComment id={post.id} />
-              {post.comments.map((item) => (
+              {comments.map((item) => (
                 <CommentBox key={item.id} comment={item} />
               ))}
             </div>
@@ -103,4 +106,33 @@ const PostBox = ({ post, open = false }) => {
   );
 };
 
-export default PostBox;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    comments: state.firestore.ordered["comments" + ownProps.post.id],
+    upvotes: state.firestore.ordered["upvotes" + ownProps.post.id],
+  };
+};
+
+const mapDispatchToProps = {};
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect((props) => {
+    return [
+      {
+        collection: "posts",
+        doc: props.post.id,
+        subcollections: [
+          { collection: "comments", orderBy: ["createdAt", "desc"] },
+        ],
+        storeAs: "comments" + props.post.id,
+      },
+      {
+        collection: "posts",
+        doc: props.post.id,
+        subcollections: [{ collection: "upvotes" }],
+        storeAs: "upvotes" + props.post.id,
+      },
+    ];
+  })
+)(PostBox);

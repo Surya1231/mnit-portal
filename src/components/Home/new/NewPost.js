@@ -34,14 +34,11 @@ class NewPost extends React.Component {
       console.log(this.state);
       this.setState({ error: null });
       this.props.createPost({
-        id: 80,
         postedBy: this.props.user,
         createdAt: new Date(),
         category: this.state.category,
         anonymous: this.state.anonymous ? true : false,
         content: this.state.content,
-        upvotes: [],
-        comments: [],
       });
       this.setState({
         category: "General",

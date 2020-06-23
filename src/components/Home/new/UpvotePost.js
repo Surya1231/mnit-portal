@@ -7,19 +7,25 @@ import { loginWarn } from "../../common/notification";
 class UpvotePost extends React.Component {
   state = {
     inProgress: false,
+    upvoted: false,
   };
 
   onClickHandler = () => {
-    if (
-      this.props.user &&
-      this.props.upvotes.indexOf(this.props.user) === -1 &&
-      !this.state.inProgress
-    ) {
-      this.setState({ inProgress: true });
+    if (this.props.user && !this.state.upvoted && !this.state.inProgress) {
+      this.setState({ inProgress: true, upvoted: true });
       this.props.addUpvote(this.props.id, this.props.user);
-    }
-    if (!this.props.user) {
+    } else if (!this.props.user) {
       loginWarn();
+    }
+  };
+
+  componentWillReceiveProps = (newProps) => {
+    if (newProps.upvotes.length > 0 && !this.state.upvoted) {
+      newProps.upvotes.forEach((item) => {
+        if (item.upvotedBy === this.props.user) {
+          this.setState({ upvoted: true });
+        }
+      });
     }
   };
 
@@ -28,10 +34,10 @@ class UpvotePost extends React.Component {
       <div
         className="text-center text-base border-right pointer"
         onClick={this.onClickHandler}
+        disabled={!this.props.user || this.state.upvoted}
       >
         <div className="d-inline-block pr-1 icon-top">
-          {this.props.user &&
-          this.props.upvotes.indexOf(this.props.user) !== -1 ? (
+          {this.props.user && this.state.upvoted ? (
             <AiTwotoneLike size={20} />
           ) : (
             <AiOutlineLike size={20} />

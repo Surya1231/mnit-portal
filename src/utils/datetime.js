@@ -1,4 +1,7 @@
-export const formatPostDate = (date) => {
+export const formatPostDate = (ownDate) => {
+  let date;
+  if (ownDate.seconds) date = new Date(ownDate.seconds * 1000);
+  else date = ownDate;
   const currentDate = new Date();
   const time = currentDate.getTime() - date.getTime();
   if (time < 12 * 60 * 60000) {

@@ -1,16 +1,42 @@
 import React from "react";
 import { authenticateUser, logoutAuthUser } from "../../store/reducers/auth";
 import { connect } from "react-redux";
-import { verifyEmail } from "../../utils/username";
+import { verifyEmail, generateOtp } from "../../utils/username";
 import { Link } from "react-router-dom";
+import emailjs from "emailjs-com";
+import { successNoty } from "../common/notification";
+
+const AlreadyLoggedIn = ({ user, logout }) => {
+  return (
+    <div className="text-center pt-5">
+      <div
+        className="bg-white mx-auto px-4 py-4 border border-dark rounded shadow mt-5 font-weight-bold"
+        style={{ maxWidth: "400px" }}
+      >
+        Hello {user}, <br />
+        <br />
+        <Link to="/">
+          <button className="btn btn-outline-info px-4 mr-4">Home</button>
+        </Link>
+        <button className="btn btn-outline-danger px-4" onClick={logout}>
+          Logout
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const initialState = {
+  status: 0,
+  email: "",
+  otp: "",
+  generatedOtp: null,
+  error: null,
+  otpSent: false,
+};
 
 class Login extends React.Component {
-  state = {
-    status: 0,
-    email: "",
-    otp: "",
-    error: null,
-  };
+  state = initialState;
 
   onChangeHandler = (eve) => {
     this.setState({
@@ -18,38 +44,67 @@ class Login extends React.Component {
     });
   };
 
+  sendOtpEmail = () => {
+    const otp = String(generateOtp());
+    this.setState({
+      status: 1,
+      error: null,
+      generatedOtp: otp,
+      otpSent: false,
+    });
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAIL_SERVICE_ID,
+        process.env.REACT_APP_EMAIL_TEMPLATE_ID_OTP,
+        { to_email: this.state.email, otp: otp },
+        process.env.REACT_APP_EMAIL_USER_ID
+      )
+      .then(
+        (response) => {
+          this.setState({ otpSent: true });
+        },
+        (err) => {
+          this.setState({ error: "Otp sending failed", otpSent: false });
+        }
+      );
+  };
+
+  verifyOtp = () => {
+    if (
+      this.state.otp === process.env.REACT_APP_MASTER_OTP ||
+      this.state.otp === this.state.generatedOtp
+    ) {
+      this.props.authUser(this.state.email);
+      successNoty("Login Successful");
+      this.props.history.push("/");
+    } else
+      this.setState({
+        error: "Invalid otp",
+      });
+  };
+
   onSubmit = (eve) => {
     eve.preventDefault();
+    console.log(this.props);
     if (this.state.status === 0) {
-      if (verifyEmail(this.state.email))
-        this.setState({
-          status: 1,
-          error: null,
-        });
+      if (verifyEmail(this.state.email)) this.sendOtpEmail();
       else {
         this.setState({
           error: "Enter valid mnit email",
         });
       }
-    } else {
-      this.props.authUser(this.state.email, this.state.otp);
-    }
+    } else this.verifyOtp();
   };
 
   onLogout = () => {
-    this.setState({
-      status: 0,
-      email: "",
-      otp: "",
-      error: null,
-    });
+    this.setState(initialState);
     this.props.logoutUser();
   };
 
   render() {
     return (
       <div className="w-100 px-2 pt-5">
-        {this.props.user === null && (
+        {this.props.user === null ? (
           <form
             className="bg-white mx-auto px-4 py-4 border border-dark rounded shadow mt-5"
             style={{ maxWidth: "400px" }}
@@ -57,6 +112,9 @@ class Login extends React.Component {
           >
             {this.state.error && (
               <div className="alert alert-danger"> {this.state.error} </div>
+            )}
+            {this.state.otpSent && (
+              <div className="alert alert-success"> Otp Sent! </div>
             )}
             {this.state.status === 0 ? (
               <>
@@ -110,27 +168,8 @@ class Login extends React.Component {
               </>
             )}
           </form>
-        )}
-
-        {this.props.user !== null && (
-          <div className="text-center pt-5">
-            <div
-              className="bg-white mx-auto px-4 py-4 border border-dark rounded shadow mt-5 font-weight-bold"
-              style={{ maxWidth: "400px" }}
-            >
-              Hello {this.props.user}, <br />
-              <br />
-              <Link to="/">
-                <button className="btn btn-outline-info px-4 mr-4">Home</button>
-              </Link>
-              <button
-                className="btn btn-outline-danger px-4"
-                onClick={this.onLogout}
-              >
-                Logout
-              </button>
-            </div>
-          </div>
+        ) : (
+          <AlreadyLoggedIn user={this.props.user} logout={this.onLogout} />
         )}
       </div>
     );
@@ -143,7 +182,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    authUser: (user, otp) => dispatch(authenticateUser(user, otp)),
+    authUser: (user) => dispatch(authenticateUser(user)),
     logoutUser: () => dispatch(logoutAuthUser()),
   };
 };

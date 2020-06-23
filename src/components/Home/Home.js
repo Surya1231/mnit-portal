@@ -11,14 +11,16 @@ import { SpinnerLoader } from "../common/Loadings";
 import { FullScreenError } from "../common/Errors";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
-import { loginWarn, errorNoty } from "../common/notification";
-import { clearHomeActionError } from "../../store/reducers/home";
+import { loginWarn } from "../common/notification";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
 class Home extends React.Component {
   state = {
     category: 0,
     newPost: false,
     categoryList: ["All", "General", "Interview", "Competitive"],
+    loading: true,
   };
 
   toggleNewPost = () => {
@@ -39,16 +41,15 @@ class Home extends React.Component {
   };
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.actionError) this.actionMessage(nextProps.actionError);
+    if (this.state.loading && nextProps.posts && nextProps.posts.length > 0) {
+      this.setState({
+        loading: false,
+      });
+    }
   };
 
   componentDidMount = () => {
     animateValue("totalValue", 0, 1000, 10);
-  };
-
-  actionMessage = (msg) => {
-    errorNoty(msg);
-    this.props.clearActionError();
   };
 
   render() {
@@ -96,7 +97,7 @@ class Home extends React.Component {
               />
             ) : (
               <div className="post-container">
-                {this.props.postLoading && (
+                {this.state.loading && (
                   <div className="pt-5">
                     <SpinnerLoader />
                   </div>
@@ -104,7 +105,7 @@ class Home extends React.Component {
                 {this.props.postError && (
                   <FullScreenError {...this.props.postError} />
                 )}
-                {!this.props.postLoading &&
+                {!this.props.loading &&
                   !this.props.postError &&
                   this.props.posts &&
                   this.props.posts.map((item) => {
@@ -126,18 +127,21 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  user: state.auth.user,
-  posts: state.home.posts,
-  postLoading: state.home.loading,
-  postError: state.home.error,
-  actionError: state.home.actionError,
-});
-
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    clearActionError: () => dispatch(clearHomeActionError()),
+    user: state.auth.user,
+    posts: state.firestore.ordered ? state.firestore.ordered.posts : [],
+    postError: state.home.error,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default compose(
+  connect(mapStateToProps, null),
+  firestoreConnect([
+    {
+      collection: "posts",
+      orderBy: ["createdAt", "desc"],
+      limit: 20,
+    },
+  ])
+)(Home);

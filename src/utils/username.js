@@ -5,3 +5,7 @@ export const getUserName = (email) => {
 export const verifyEmail = (email) => {
   return email.endsWith("@mnit.ac.in");
 };
+
+export const generateOtp = () => {
+  return 1000 + Math.round(Math.random() * 8000);
+};
