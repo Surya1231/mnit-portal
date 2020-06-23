@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/mnit-portal/static/css/main.c87d8323.chunk.css",
-    "main.js": "/mnit-portal/static/js/main.3cdb08c2.chunk.js",
-    "main.js.map": "/mnit-portal/static/js/main.3cdb08c2.chunk.js.map",
+    "main.js": "/mnit-portal/static/js/main.d1fa2c17.chunk.js",
+    "main.js.map": "/mnit-portal/static/js/main.d1fa2c17.chunk.js.map",
     "runtime-main.js": "/mnit-portal/static/js/runtime-main.df74e656.js",
     "runtime-main.js.map": "/mnit-portal/static/js/runtime-main.df74e656.js.map",
     "static/css/2.d6b3dacc.chunk.css": "/mnit-portal/static/css/2.d6b3dacc.chunk.css",
-    "static/js/2.03dbc33b.chunk.js": "/mnit-portal/static/js/2.03dbc33b.chunk.js",
-    "static/js/2.03dbc33b.chunk.js.map": "/mnit-portal/static/js/2.03dbc33b.chunk.js.map",
+    "static/js/2.e2cfcfdc.chunk.js": "/mnit-portal/static/js/2.e2cfcfdc.chunk.js",
+    "static/js/2.e2cfcfdc.chunk.js.map": "/mnit-portal/static/js/2.e2cfcfdc.chunk.js.map",
     "index.html": "/mnit-portal/index.html",
-    "precache-manifest.3181e6ebdae4309a2a2753b2c7020467.js": "/mnit-portal/precache-manifest.3181e6ebdae4309a2a2753b2c7020467.js",
+    "precache-manifest.7ca544b7c29e5aea3b70baf1ee407e6e.js": "/mnit-portal/precache-manifest.7ca544b7c29e5aea3b70baf1ee407e6e.js",
     "service-worker.js": "/mnit-portal/service-worker.js",
     "static/css/2.d6b3dacc.chunk.css.map": "/mnit-portal/static/css/2.d6b3dacc.chunk.css.map",
     "static/css/main.c87d8323.chunk.css.map": "/mnit-portal/static/css/main.c87d8323.chunk.css.map",
-    "static/js/2.03dbc33b.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.03dbc33b.chunk.js.LICENSE.txt"
+    "static/js/2.e2cfcfdc.chunk.js.LICENSE.txt": "/mnit-portal/static/js/2.e2cfcfdc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.df74e656.js",
     "static/css/2.d6b3dacc.chunk.css",
-    "static/js/2.03dbc33b.chunk.js",
+    "static/js/2.e2cfcfdc.chunk.js",
     "static/css/main.c87d8323.chunk.css",
-    "static/js/main.3cdb08c2.chunk.js"
+    "static/js/main.d1fa2c17.chunk.js"
   ]
 }
