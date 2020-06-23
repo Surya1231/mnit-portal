@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mnit-portal/static/css/main.c87d8323.chunk.css",
-    "main.js": "/mnit-portal/static/js/main.d1fa2c17.chunk.js",
-    "main.js.map": "/mnit-portal/static/js/main.d1fa2c17.chunk.js.map",
+    "main.js": "/mnit-portal/static/js/main.89c8afa7.chunk.js",
+    "main.js.map": "/mnit-portal/static/js/main.89c8afa7.chunk.js.map",
     "runtime-main.js": "/mnit-portal/static/js/runtime-main.df74e656.js",
     "runtime-main.js.map": "/mnit-portal/static/js/runtime-main.df74e656.js.map",
     "static/css/2.d6b3dacc.chunk.css": "/mnit-portal/static/css/2.d6b3dacc.chunk.css",
     "static/js/2.e2cfcfdc.chunk.js": "/mnit-portal/static/js/2.e2cfcfdc.chunk.js",
     "static/js/2.e2cfcfdc.chunk.js.map": "/mnit-portal/static/js/2.e2cfcfdc.chunk.js.map",
     "index.html": "/mnit-portal/index.html",
-    "precache-manifest.7ca544b7c29e5aea3b70baf1ee407e6e.js": "/mnit-portal/precache-manifest.7ca544b7c29e5aea3b70baf1ee407e6e.js",
+    "precache-manifest.6e73ae950e6c3c06379aefa955d07d7f.js": "/mnit-portal/precache-manifest.6e73ae950e6c3c06379aefa955d07d7f.js",
     "service-worker.js": "/mnit-portal/service-worker.js",
     "static/css/2.d6b3dacc.chunk.css.map": "/mnit-portal/static/css/2.d6b3dacc.chunk.css.map",
     "static/css/main.c87d8323.chunk.css.map": "/mnit-portal/static/css/main.c87d8323.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.d6b3dacc.chunk.css",
     "static/js/2.e2cfcfdc.chunk.js",
     "static/css/main.c87d8323.chunk.css",
-    "static/js/main.d1fa2c17.chunk.js"
+    "static/js/main.89c8afa7.chunk.js"
   ]
 }

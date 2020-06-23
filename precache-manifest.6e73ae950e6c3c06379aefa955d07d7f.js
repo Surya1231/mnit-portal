@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c1c21ced3399d00e64727f7275d147b",
+    "revision": "77b12344b71f30c42205302197e0eb6a",
     "url": "/mnit-portal/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mnit-portal/static/css/2.d6b3dacc.chunk.css"
   },
   {
-    "revision": "0a890f9d8056e61f9a06",
+    "revision": "62d6766192253238cf94",
     "url": "/mnit-portal/static/css/main.c87d8323.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mnit-portal/static/js/2.e2cfcfdc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0a890f9d8056e61f9a06",
-    "url": "/mnit-portal/static/js/main.d1fa2c17.chunk.js"
+    "revision": "62d6766192253238cf94",
+    "url": "/mnit-portal/static/js/main.89c8afa7.chunk.js"
   },
   {
     "revision": "945d5fc7060909826f3f",
