@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mnit-portal/precache-manifest.6e73ae950e6c3c06379aefa955d07d7f.js"
+  "/mnit-portal/precache-manifest.d394d74d6aa58eb3c669e35be46a3954.js"
 );
 
 self.addEventListener('message', (event) => {
