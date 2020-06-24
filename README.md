@@ -53,6 +53,10 @@ You can view the [Live Demo](https://mnit-portal.web.app/).
 - Deploy `npm run deploy`
 - Test `npm run test`
 
+## Contribution guidelines
+
+- Will be added soon so everyone can contribute
+
 ## Developer's guide
 
 - Please keep a look at features that we want to implement
