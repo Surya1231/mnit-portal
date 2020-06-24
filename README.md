@@ -1,9 +1,9 @@
 # Mnit Portal
 
 One Stop portal for mnitians for getting all the information regarding MNIT.
-You can view the [Live Demo](https://surya1231.github.io/mnit-portal/).
+You can view the [Live Demo](https://mnit-portal.web.app/).
 
-<a href='https://surya1231.github.io/mnit-portal/' target='_blank'>
+<a href='https://mnit-portal.web.app/' target='_blank'>
     <img src="https://img.shields.io/badge/Project%20Status-Live-green"></a>
 </a>
 
