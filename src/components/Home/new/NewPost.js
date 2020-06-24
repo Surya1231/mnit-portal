@@ -47,7 +47,7 @@ class NewPost extends React.Component {
         error: null,
         success: "Successfully Posted",
       });
-      setTimeout(this.props.toggleNewPost, 500);
+      this.props.toggleNewPost();
     }
   };
 

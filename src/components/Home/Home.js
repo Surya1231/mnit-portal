@@ -14,6 +14,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { loginWarn } from "../common/notification";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import { increasePostLimit } from "../../store/reducers/home";
 
 class Home extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class Home extends React.Component {
     newPost: false,
     categoryList: ["All", "General", "Interview", "Competitive"],
     loading: true,
+    limitOn: true,
   };
 
   toggleNewPost = () => {
@@ -45,6 +47,17 @@ class Home extends React.Component {
       this.setState({
         loading: false,
       });
+    }
+    if (nextProps.posts) {
+      if (nextProps.limit > nextProps.posts.length) {
+        this.setState({
+          limitOn: false,
+        });
+      } else {
+        this.setState({
+          limitOn: true,
+        });
+      }
     }
   };
 
@@ -107,17 +120,33 @@ class Home extends React.Component {
                 )}
                 {!this.props.loading &&
                   !this.props.postError &&
-                  this.props.posts &&
-                  this.props.posts.map((item) => {
-                    if (this.state.category === 0)
-                      return <PostBox post={item} key={item.id} />;
-                    else if (
-                      this.state.categoryList[this.state.category] ===
-                      item.category
-                    )
-                      return <PostBox post={item} key={item.id} />;
-                    else return <React.Fragment key={item.id}></React.Fragment>;
-                  })}
+                  this.props.posts && (
+                    <>
+                      {this.props.posts.map((item) => {
+                        if (this.state.category === 0)
+                          return <PostBox post={item} key={item.id} />;
+                        else if (
+                          this.state.categoryList[this.state.category] ===
+                          item.category
+                        )
+                          return <PostBox post={item} key={item.id} />;
+                        else
+                          return (
+                            <React.Fragment key={item.id}></React.Fragment>
+                          );
+                      })}
+                      <div className="text-center">
+                        {this.state.limitOn && (
+                          <button
+                            className="btn btn-outline-info px-4 mt-3"
+                            onClick={this.props.increaseLimit}
+                          >
+                            Load Older
+                          </button>
+                        )}
+                      </div>
+                    </>
+                  )}
               </div>
             )}
           </div>
@@ -132,16 +161,26 @@ const mapStateToProps = (state) => {
     user: state.auth.user,
     posts: state.firestore.ordered ? state.firestore.ordered.posts : [],
     postError: state.home.error,
+    limit: state.home.limit,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increaseLimit: (limit) => dispatch(increasePostLimit(limit)),
   };
 };
 
 export default compose(
-  connect(mapStateToProps, null),
-  firestoreConnect([
-    {
-      collection: "posts",
-      orderBy: ["createdAt", "desc"],
-      limit: 20,
-    },
-  ])
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect((props) => {
+    return [
+      {
+        collection: "posts",
+        orderBy: ["createdAt", "desc"],
+        limit: props.limit ? props.limit : 10,
+        storeAs: "posts",
+      },
+    ];
+  })
 )(Home);
