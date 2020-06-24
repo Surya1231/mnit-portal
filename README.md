@@ -9,8 +9,8 @@ You can view the [Live Demo](https://mnit-portal.web.app/).
 
 ## Features Planned
 
-- Home (a forum where anyone can post anonymously)
-- Leaderboard (rank list of students of mnit fetched from codeforces , codechef etc.)
+- Home (a forum where anyone can post anonymously) (Partially Completed)
+- Leaderboard (rank list of students of mnit fetched from codeforces , codechef etc.) (Codeforced Added)
 - Interview Corner (a one stop portal for all the interview related materials)
 - Companies (Authenticated view only , get to know companies visiting MNIT)
 - About (a quick info of our portal)
