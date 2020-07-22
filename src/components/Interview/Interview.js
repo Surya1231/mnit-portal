@@ -32,14 +32,16 @@ class Interview extends React.Component {
     return (
       <div className="row pt-3">
         <div className="col-md-3 px-md-3 pb-3">
-          <SideMenu
-            optionList={this.state.optionList}
-            active={this.state.active}
-            onClickHandler={this.changeActive}
-          />
+          <div className="shadow">
+            <SideMenu
+              optionList={this.state.optionList}
+              active={this.state.active}
+              onClickHandler={this.changeActive}
+            />
+          </div>
         </div>
         <div className="col-md-9">
-          <div className="interview-box px-4 py-4 overflow-y-auto mb-3">
+          <div className="interview-box px-4 pt-3 pb-2 overflow-y-auto mb-3 shadow">
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
           </div>
         </div>
