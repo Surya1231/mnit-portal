@@ -55,7 +55,7 @@ const PostBox = ({ post, open = false, comments = [], upvotes = [] }) => {
             </div>
           </span>
         </div>
-        <div className="post-centent mt-2">
+        <div className="post-content mt-2">
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
           <div className="info row">
             <div className="col-6 px-0 py-0 text-primary">

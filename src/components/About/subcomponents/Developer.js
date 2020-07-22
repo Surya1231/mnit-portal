@@ -14,7 +14,15 @@ const Developer = () => {
           alt="..."
         />
         <div className="card-body">
-          <h2 className="text-center text-primary">Suryaprakash Agarwal</h2>
+          <h2 className="text-center text-primary pointer">
+            <a
+              href="https://surya1231.github.io"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Suryaprakash Agarwal
+            </a>
+          </h2>
           <p className="card-text text-center"></p>
         </div>
       </div>

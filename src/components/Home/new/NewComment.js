@@ -80,7 +80,7 @@ class NewComment extends React.Component {
                 onClick={this.onSubmit}
                 disabled={!this.props.user}
               >
-                Submit
+                Post
               </button>
             </div>
           </div>

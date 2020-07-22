@@ -88,6 +88,10 @@ $error-color-light: rgb(231, 176, 176);
   border: 1px solid $base-color;
 }
 
+.post-content p {
+  margin: 0px !important;
+}
+
 // LeaderBoard Css
 
 .leaderboard-container {
@@ -132,6 +136,15 @@ $error-color-light: rgb(231, 176, 176);
   top: -2px;
 }
 // Boxes
+
+.interview-box {
+  background-color: white;
+  height: 85vh;
+
+  p {
+    margin: 0px !important;
+  }
+}
 
 .content-box {
   background-color: white;
@@ -187,6 +200,7 @@ $error-color-light: rgb(231, 176, 176);
 .font-sm {
   font-size: 0.9rem;
 }
+
 // Styling fixes
 
 .row {

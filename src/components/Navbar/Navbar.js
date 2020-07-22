@@ -60,16 +60,6 @@ const Navbar = ({ pathname }) => {
             </li>
             <li className="nav-item">
               <Link
-                className={`nav-link ${
-                  pathname === "/company" ? "active" : ""
-                }`}
-                to="/company"
-              >
-                Company
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
                 className={`nav-link ${pathname === "/about" ? "active" : ""}`}
                 to="/about"
               >
@@ -86,6 +76,16 @@ const Navbar = ({ pathname }) => {
                 Codeshows
               </a>
             </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://contestmania.web.app/"
+              >
+                Contest-Mania
+              </a>
+            </li>
           </ul>
           <ul className="navbar-nav navbar-text py-0">
             <li className="nav-item">
@@ -96,7 +96,6 @@ const Navbar = ({ pathname }) => {
                 News
               </Link>
             </li>
-
             <AuthBar pathname={pathname} />
             <ReportAnIssue />
           </ul>

@@ -2,18 +2,12 @@ import React from "react";
 import SideMenu from "../common/SideMenu";
 import Developer from "./subcomponents/Developer";
 import Github from "./subcomponents/Github";
+import Info from "./subcomponents/Info";
 
 class About extends React.Component {
   state = {
     active: 0,
-    optionList: [
-      "Developer",
-      "Github",
-      "Contributors",
-      "Stats",
-      "Policies",
-      "Info",
-    ],
+    optionList: ["Developer", "Github", "Info"],
   };
 
   changeActive = (index) => {
@@ -38,6 +32,7 @@ class About extends React.Component {
           <div className=" shadow rounded fixed-side-box">
             {this.state.active === 0 && <Developer />}
             {this.state.active === 1 && <Github />}
+            {this.state.active === 2 && <Info />}
           </div>
         </div>
       </div>

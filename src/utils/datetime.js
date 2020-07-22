@@ -8,5 +8,6 @@ export const formatPostDate = (ownDate) => {
     if (time < 60 * 60000) return Math.round(time / 60000) + " mins ago";
     return Math.round(time / (60 * 60000)) + " hours ago";
   }
-  return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+  const month = date.toLocaleString("default", { month: "short" });
+  return date.getDate() + " " + month + " " + date.getFullYear();
 };
