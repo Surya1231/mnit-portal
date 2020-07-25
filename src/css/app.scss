@@ -88,8 +88,11 @@ $error-color-light: rgb(231, 176, 176);
   border: 1px solid $base-color;
 }
 
-.post-content p {
-  margin: 0px !important;
+.post-content {
+  overflow-x: hidden;
+  p {
+    margin: 0px !important;
+  }
 }
 
 // LeaderBoard Css
