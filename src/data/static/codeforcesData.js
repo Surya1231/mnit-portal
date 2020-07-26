@@ -81,6 +81,8 @@ export const cf_second_year = [
   "nowucmeee",
   "shu_garg",
   "shivam_1999",
+  "pranavsindura",
+  "21_aanchal",
 ];
 
 export const cf_first_year = [
@@ -110,4 +112,6 @@ export const cf_first_year = [
   "hitesh_singh_rana",
   "rohit_lohar",
   "vinittaparia",
+  "Recko1",
+  "oyeegaurav",
 ];

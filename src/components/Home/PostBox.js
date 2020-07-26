@@ -39,7 +39,13 @@ const CommentBox = ({ comment }) => {
 //   );
 // };
 
-const PostBox = ({ post, open = false, comments = [], upvotes = [] }) => {
+const PostBox = ({
+  post,
+  open = false,
+  comments = [],
+  upvotes = [],
+  maxHeight = "700px",
+}) => {
   const url = String(window.location);
   const baseUrl = url.split("/")[0] + "//" + url.split("/")[2];
   const [showComment, changeShowComment] = useState(open);
@@ -56,7 +62,9 @@ const PostBox = ({ post, open = false, comments = [], upvotes = [] }) => {
           </span>
         </div>
         <div className="post-content mt-2">
-          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+          <div style={{ maxHeight: maxHeight, overflowY: "auto" }}>
+            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+          </div>
           <div className="info row">
             <div className="col-6 px-0 py-0 text-primary">
               <span className="pointer">

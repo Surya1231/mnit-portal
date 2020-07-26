@@ -12,6 +12,7 @@ const FullPost = (props) => {
         <PostBox
           post={{ ...props.post, id: props.match.params.id }}
           open={true}
+          maxHeight="auto"
         />
       ) : (
         <div className="pt-5">
