@@ -5,6 +5,8 @@ import { verifyEmail, generateOtp } from "../../utils/username";
 import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
 import { successNoty } from "../common/notification";
+import countapi from "countapi-js";
+import { namespace, localCount } from "../../api/countapi";
 
 const AlreadyLoggedIn = ({ user, logout }) => {
   return (
@@ -81,6 +83,10 @@ class Login extends React.Component {
       this.setState({
         error: "Invalid otp",
       });
+  };
+
+  componentDidMount = () => {
+    countapi.hit(namespace, localCount);
   };
 
   onSubmit = (eve) => {

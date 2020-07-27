@@ -6,9 +6,14 @@ $sidemenu-text-color: black;
 $error-color: rgb(150, 10, 10);
 $error-color-light: rgb(231, 176, 176);
 
+#root {
+  overflow-y: auto;
+  min-height: 100vh;
+  padding-top: 57.5px;
+}
+
 .app {
   background-color: #d3d3d3;
-  min-height: 100vh;
   height: auto;
 }
 
@@ -21,6 +26,11 @@ $error-color-light: rgb(231, 176, 176);
 // Navigation Bar css
 
 .navbar-container {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 10;
+
   .navbar {
     font-size: large;
     background-color: $base-color;
@@ -90,6 +100,23 @@ $error-color-light: rgb(231, 176, 176);
 
 .post-content {
   overflow-x: hidden;
+
+  @media (min-width: 600px) {
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: $base-color;
+      border-radius: 20px;
+    }
+  }
+
   p {
     margin: 0px !important;
   }

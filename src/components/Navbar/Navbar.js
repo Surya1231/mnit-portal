@@ -97,7 +97,7 @@ const Navbar = ({ pathname }) => {
               </Link>
             </li>
             <AuthBar pathname={pathname} />
-            <ReportAnIssue />
+            {/* <ReportAnIssue /> */}
           </ul>
         </div>
       </nav>

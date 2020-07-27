@@ -3,7 +3,6 @@ import SideMenu from "../common/SideMenu";
 import QuoteBox from "../common/QuoteBox";
 import { MobileHiddenDiv } from "../common/ResponsiveDiv";
 import StatsBox from "../common/StatsBox";
-import { animateValue } from "../../utils/animation";
 import PostBox from "./PostBox";
 import NewPost from "./new/NewPost";
 import { connect } from "react-redux";
@@ -59,10 +58,6 @@ class Home extends React.Component {
         });
       }
     }
-  };
-
-  componentDidMount = () => {
-    animateValue("totalValue", 0, 1000, 10);
   };
 
   render() {

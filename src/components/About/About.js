@@ -3,11 +3,13 @@ import SideMenu from "../common/SideMenu";
 import Developer from "./subcomponents/Developer";
 import Github from "./subcomponents/Github";
 import Info from "./subcomponents/Info";
+import StatsBox from "../common/StatsBox";
+import { CenterDiv } from "../common/ResponsiveDiv";
 
 class About extends React.Component {
   state = {
     active: 0,
-    optionList: ["Developer", "Github", "Info"],
+    optionList: ["Developer", "Github", "Info", "Stats"],
   };
 
   changeActive = (index) => {
@@ -33,6 +35,13 @@ class About extends React.Component {
             {this.state.active === 0 && <Developer />}
             {this.state.active === 1 && <Github />}
             {this.state.active === 2 && <Info />}
+            {this.state.active === 3 && (
+              <CenterDiv>
+                <div className="mx-auto" style={{ maxWidth: "400px" }}>
+                  <StatsBox />
+                </div>
+              </CenterDiv>
+            )}
           </div>
         </div>
       </div>

@@ -19,13 +19,16 @@ import { connect } from "react-redux";
 import RedirectIfNotAuth from "./components/common/RedirectIfNotAuth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import countapi from "countapi-js";
 
 import "./css/app.scss";
+import { namespace, globalAPI } from "./api/countapi";
 
 toast.configure();
 class App extends React.Component {
   componentDidMount = () => {
     this.props.authLocalUser();
+    countapi.hit(namespace, globalAPI);
   };
 
   render() {

@@ -10,11 +10,19 @@ class Interview extends React.Component {
     optionList: [
       "Interview Topics",
       "Resources",
+      "Interview Questions",
       "Resume",
       "Past Experience",
       "Mnit Policies",
     ],
-    valueList: ["interview", "resources", "resume", "experience", "mnit"],
+    valueList: [
+      "interview",
+      "resources",
+      "interview_questions",
+      "resume",
+      "experience",
+      "mnit",
+    ],
   };
 
   changeActive = (index) => {
